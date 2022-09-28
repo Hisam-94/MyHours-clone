@@ -1,0 +1,41 @@
+/* .nav-btn-getStarted{
+
+    color: #07a75c;
+    border-color: #07a75c;
+    border-width: 3px;
+    background-color: white;
+}
+
+.nav-btn-getStarted:hover{
+
+    color: white;
+    background-color: #00c66b;
+} */
+
+.navSticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 99999;
+}
+
+.show{
+    display:none;
+}
+
+@media only screen and (max-width: 48rem) {
+    .hide {
+      display:none;
+    }
+    .show{
+        display:block;
+    }
+  }
+
+  /* @media only screen and (max-width: 300px) {
+    
+    .show{
+        display:block;
+    }
+  } */
