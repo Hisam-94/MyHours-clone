@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Image, Text } from "@chakra-ui/react";
+import image from '../../Utils/Home/Home_image-1.png'
 import { Link } from "react-router-dom";
 
 const Description = () => {
@@ -45,6 +46,9 @@ const Description = () => {
             Get Started - It's Free
           </Button>
         </Link>
+      </Box>
+      <Box width={"80%"} m="auto">
+        <Image src={image} alt="Description_Image" w="100%" h="100%"/>
       </Box>
     </Box>
   );
