@@ -1,5 +1,59 @@
 .topDiv{
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 940px;
+}
+
+.heading45{
+    margin-bottom: 10px;
+    font-family: Avenirnextltpro,sans-serif;
+    color: #212529;
+    font-size: 72px;
+    font-weight: 200;
+    text-align: center;
+    outline: none;
+    margin-top: 0;
+    line-height: 1.2;
+    margin: 0.67em 0;
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.heading47{
+    margin-bottom: 20px;
+    font-family: 'Avenir Next',sans-serif;
+    color: #375d75;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+    margin-top: 0;
+    line-height: 1.2;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.textBlock{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding-right: 50px;
+    padding-left: 50px;
+    color: #375d75;
+    font-size: 28px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: normal;
 }
 
 .btn{
@@ -42,3 +96,4 @@
     font-weight: 500;
     letter-spacing: .5px;
 }
+
