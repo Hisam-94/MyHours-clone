@@ -1,0 +1,44 @@
+.topDiv{
+    box-sizing: border-box;
+}
+
+.btn{
+    position: static;
+    bottom: auto;
+    margin-bottom: 40px;
+    margin-left: 0;
+    padding: 15px 30px;
+    clear: none;
+    align-self: auto;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: #3b8fc2;
+    text-align: center;
+    left: auto;
+    top: auto;
+    right: auto;
+    margin-top: 15px;
+    margin-right: 0;
+    float: none;
+    border-color: #2cb1f0;
+    transform: translate(0,0);
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #666;
+    transition: background-color .2s,border .2s,color .2s;
+    font-size: 1rem;
+    line-height: 1.25;
+    text-decoration: none;
+}
+
+.btn:hover{
+    background: #0b71a8;
+
+}
+
+.text{
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    letter-spacing: .5px;
+}
