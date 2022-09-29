@@ -4,8 +4,10 @@ import image from "../../Utils/Home/Coordinate_Image.png";
 
 const CoordinateTeam = () => {
   return (
-    <Flex p="5rem 2rem">
-      <Box w="35%" textAlign="start">
+    <Flex p="5rem 2rem" justify={"center"}
+    direction={["column","column","row","row"]}
+    w={["100%",]}>
+      <Box w={["100%","100%","45%","35%"]} textAlign="start">
         <Heading color="#375d75" fontWeight="semibold" mb="1rem">
           Coordinate your team, projects and tasks
         </Heading>
@@ -20,7 +22,7 @@ const CoordinateTeam = () => {
           Art Director
         </Text>
       </Box>
-      <Box w="65%">
+      <Box w={["100%","100%","55%","65%"]}>
         <Image src={image} alt="Coordinate_Image" />
       </Box>
     </Flex>
