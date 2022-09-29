@@ -163,6 +163,14 @@ const Work = () => {
         </div>
     </div>
 
+      {/* **********************Section-6****************** */}
+      <div className={style.cont6}>
+           <div>
+            <img className={style.image6} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fc4fa86e0322e7deff06f6e_Group%203.png" alt="" />
+           </div>
+           <h2 className={style.heading6}>No, you cannot spy on your employees with My Hours</h2>
+           <div className={style.textBlock6}>My Hours does not record your or your employees’ screens. No screenshots, no apps tracked, <span className={style.span6}> no employee monitoring. </span> Of course, you are free to view work logs that your team members have entered.</div>
+      </div>
 
     </div>
   )
