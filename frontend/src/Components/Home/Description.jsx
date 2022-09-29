@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 const Description = () => {
   return (
     <Box>
-      <Box p="2rem 1rem" mt={"3rem"}>
+      <Box p="2rem 0rem" mt={["0rem","0rem","3rem","5rem"]}>
         <Heading
-          style={{ fontSize: "5rem", marginBottom: "2rem" }}
+          style={{ marginBottom: "2rem" }}
           fontWeight="thin"
-          p="2rem 6rem"
+          // p="2rem 6rem"
+          w={["100%","90%","80%","80%"]}
+          mr="auto"
+          ml="auto"         
+          size="4xl"
         >
           <Text as={"span"} fontWeight="normal">
             Organize
@@ -25,7 +29,7 @@ const Description = () => {
           </Text>{" "}
           your work
         </Heading>
-        <Heading fontWeight={"thin"} size="lg" mb={"5rem"}>
+        <Heading fontWeight={"thin"} size="lg" mb={"5rem"} mt="2rem">
           Coordinate projects and tasks. Track your work hours and create
           awesome-looking reports for clients.{" "}
           <Text as={"span"} fontWeight="bold" color={"#375d75"}>
