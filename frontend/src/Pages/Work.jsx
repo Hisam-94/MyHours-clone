@@ -15,7 +15,7 @@ const Work = () => {
     <div>
         <div className={style.cont2}>
             <div className={style.cont2Div}>
-                <iframe src="https://www.youtube.com/embed/VpMysclixyQ?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0" frameborder="0" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto" allow="autoplay; encrypted-media" allowfullscreen="" title="My Hours Intro video"></iframe>
+                <iframe className={style.video} src="https://www.youtube.com/embed/VpMysclixyQ?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0" frameborder="0"  allow="autoplay; encrypted-media" allowfullscreen="" title="My Hours Intro video"></iframe>
             </div>
         </div>
     </div>
