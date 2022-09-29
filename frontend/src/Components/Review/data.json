@@ -1,0 +1,56 @@
+[
+    {
+        "id" : 1,
+        "review1" : "Easy tracking of billable hours across various projects.",
+        "review2" : " Makes time tracking for different tasks simple.",
+        "author" : "- Paul H., Business Owner"
+    },
+    {
+        "id" : 2,
+        "review1" : "My Hours is great for keeping track of time spent on different projects. It makes completing my mandatory timesheets at the end of the week.",
+        "review2" : " WAY FASTER",
+        "author" : "‍- Michael B., Manager"
+    },
+    {
+        "id" : 3,
+        "review1" : "I've enjoyed using My Hours, and I use it every day.",
+        "review2" : " Great tool for tracking my time!",
+        "author" : "‍- Cody H., Engineer"
+    },
+    {
+        "id" : 4,
+        "review1" : "Ease of use, simplicity, streamlined, No negatives for the purpose and scope for which I am using the software.",
+        "review2" : " it really helped me get my hour tracking in order.",
+        "author" : "‍- Arieh F., CFO"
+    },
+    {
+        "id" : 5,
+        "review1" : "The software is very easy to set up, and you can start using it right away to track your time,",
+        "review2" : " assigning different hourly rates for different types of work.",
+        "author" : "- Naomi S., Marketing Manager"
+    },
+    {
+        "id" : 6,
+        "review1" : "This is the easiest-to-use software that I've found in terms of tracking hours and ",
+        "review2" : "minutes for multiple projects.",
+        "author" : "‍- Michelle W., Virtual Assistant"
+    },
+    {
+        "id" : 7,
+        "review1" : "Easy to use for my team members who are remote but hourly. My House provides a simple and easy way to record.",
+        "review2" : ", track and manage activity",
+        "author" : "‍- Thomas S., Head of Customer Success"
+    },
+    {
+        "id" : 8,
+        "review1" : "I really love this software. It keeps track of all my hours and is really easy to use. ",
+        "review2" : "I would definitely recommend this software. There is nothing that I don't like about this software.",
+        "author" : "‍- Christina C., Paralegal"
+    },
+    {
+        "id" : 9,
+        "review1" : "I love that I can track my hours and use it to generate meaningful reports to measure time spent.",
+        "review2" : " It's intuitive, easy-to-use, and highly customizable.",
+        "author" : "- Kristen B., Bussines Owner"
+    }
+]
