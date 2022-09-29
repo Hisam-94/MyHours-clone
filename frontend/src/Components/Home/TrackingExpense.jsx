@@ -4,11 +4,13 @@ import image from "../../Utils/Home/Expense_Image.png";
 
 const TrackingExpense = () => {
   return (
-    <Flex p="5rem 2rem" gap="1rem" alignItems="center">
-      <Box w="65%">
+    <Flex p="5rem 2rem" gap="1rem" alignItems="center"justify={"center"}
+    direction={["column","column","row","row"]}
+    w={["100%",]}>
+      <Box w={["100%","100%","55%","65%"]}>
         <Image src={image} alt="Coordinate_Image" />
       </Box>
-      <Box w="35%" textAlign="start">
+      <Box w={["100%","100%","45%","35%"]} textAlign="start" >
         <Heading color="#375d75" fontWeight="semibold" mb="1rem">
         Track your work hours, expenses and more
         </Heading>
