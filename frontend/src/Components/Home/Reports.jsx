@@ -7,8 +7,12 @@ import { Link } from "react-router-dom";
 const Reports = () => {
   return (
     <Box>
-      <Flex p="5rem 2rem" alignItems="center">
-        <Box w="35%" textAlign="start">
+      <Flex p="5rem 2rem" alignItems="center"
+    justify={"center"}
+    direction={["column","column","row","row"]}
+    w={["100%",]}
+    >
+        <Box w={["100%","100%","45%","35%"]} textAlign="start">
           <Heading color="#375d75" fontWeight="semibold" mb="1rem">
             Create great-looking reports
           </Heading>
@@ -23,7 +27,7 @@ const Reports = () => {
             owner
           </Text>
         </Box>
-        <Box w="65%">
+        <Box w={["100%","100%","55%","65%"]}>
           <Image src={image} alt="Coordinate_Image" />
         </Box>
       </Flex>
