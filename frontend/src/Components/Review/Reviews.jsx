@@ -16,7 +16,9 @@ const Reviews = () => {
       // bg='green'
       width={[
         '100%', // 0-30em
-      ]}>
+      ]}
+      // bg="blue"
+      >
  <Heading
         w="100%"
         as='h1'
@@ -45,20 +47,20 @@ const Reviews = () => {
 
         <Grid
         w="100%"
-        // bg='blue'
-        p={['0px 8px' , '0px 18px']} 
-        templateColumns={[ "repeat(2, 1fr)" , "repeat(3, 2fr)" ]}
+        // bg='blue.100'
+
+        p={['0px 2rem' , '0px 5rem' , '0px 7rem', '0px 8rem']} 
+        templateColumns={[ "repeat(1, 1fr)", "repeat(2, 1fr)" , "repeat(3, 1fr)", "repeat(3, 1fr)" ]}
         templateRows="atuo"
-        gap={3}
         mt="30px">
            
            {data.map((el, ind) => (
-             <GridItem rounded="20" p="20" 
+             <GridItem rounded="20" p="1rem" 
             >
              <Text
                letterSpacing="0.5px"
                fontWeight="350"
-               fontSize={[ '15px',  '4px', '16px' ]}
+               fontSize={[ '15px', '15px',  '14px', '16px' ]}
                textAlign="center"
              >
 
@@ -68,7 +70,7 @@ const Reviews = () => {
              <Heading
                fontWeight="700"
                fontStyle="italic"
-               size="md"
+               size={["sm","md","md","md"]}
                mt="3"
                textAlign="left"
              >
