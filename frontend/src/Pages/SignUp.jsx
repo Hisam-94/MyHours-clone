@@ -25,9 +25,31 @@ const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const payload = {
+      name,
+      email,
+      password,
+    };
+    fetch("http://localhost:8080/user/signup",{
+      method: "POST",
+      headers:{
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    })
+    .then((res)=>res.json())
+    .then((res)=>console.log(res))
+    .catch((err)=>console.log(err))
+  };
 
   return (
     <Stack
@@ -43,9 +65,9 @@ const SignUp = () => {
         bg="white"
         minW={{ base: "90%", md: "568px" }}
       >
-        <form>
+        <form onSubmit={handleSubmit}>
           <Stack
-            // spacing={4}
+            spacing={1}
             p="1rem"
             backgroundColor="whiteAlpha.900"
             boxShadow="md"
@@ -64,7 +86,7 @@ const SignUp = () => {
               So we know what to call you in the app
             </Text>
             <FormControl>
-              <Input type="string" />
+              <Input type="text" onChange={(e)=>setName(e.target.value)}/>
             </FormControl>
             <Text textAlign="left" as="b" fontSize="15px">
               EMAIL
@@ -78,7 +100,7 @@ const SignUp = () => {
                   pointerEvents="none"
                   children={<CFaUserAlt color="gray.300" />}
                 />
-                <Input type="email" placeholder="Email Address" />
+                <Input type="email" placeholder="Email Address" onChange={(e)=>setEmail(e.target.value)}/>
               </InputGroup>
             </FormControl>
             <Text textAlign="left" as="b" fontSize="15px">
@@ -94,6 +116,7 @@ const SignUp = () => {
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={handleShowClick}>
