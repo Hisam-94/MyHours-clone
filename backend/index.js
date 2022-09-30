@@ -4,6 +4,9 @@ require("dotenv").config()
 const cors = require("cors")
 const {connection} = require("./Config/db")
 const {userController} = require("./Routes/user.routes")
+const{teamController} = require("./Routes/team.route")
+const{teamMemberController} = require("./Routes/teamMember.route")
+
 
 const { authentication } = require("./Middlewares/authentication");
 
@@ -19,7 +22,8 @@ app.get("/" , (req,res) =>{
 app.use(cors());
 app.use("/user" , userController);
 app.use(authentication)
-
+app.use("/team", teamController)
+app.use("/teammember", teamMemberController)
 
 app.listen(PORT, async()=>{
 
