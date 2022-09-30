@@ -88,7 +88,7 @@ export const FAQdiv = styled.div`
   margin: auto;
   font-family: Avernirnextitpro, sans-serif;
 `;
-export const FeatureDiv = styled.div`
+export const TableContainer = styled.div`
   width: 75%;
   margin: 50px auto;
 `;
