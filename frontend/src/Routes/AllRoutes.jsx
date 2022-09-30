@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Sidebar from '../Pages/Application/Sidebar/Sidebar'
 import Home from '../Pages/Home'
 import Login from '../Pages/Login'
+import SignUp from '../Pages/SignUp'
 import Pricing from '../Pages/Pricepage/Pricing'
 import Resources from '../Pages/Resources/Resources'
 import Support from '../Pages/Support/Support'
@@ -19,8 +20,7 @@ const AllRoutes = () => {
         <Route path='/how-it-works' element={<Work/>}/>
         <Route path='/support' element={<Support/>}/>
         <Route path='/login' element={<Login/>}/>
-        {/* <Route path='/signup' element={<SignUp/>}/> */}
-        <Route path='/sidebar' element={<Sidebar/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
     </Routes>
   )
 }
