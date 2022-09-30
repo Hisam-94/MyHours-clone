@@ -14,13 +14,13 @@ const AllRoutes = () => {
   return (
     <Routes>
         <Route path='/' element={<Home/>}/>
-        {/* <Route path='/how-it-works' element={<Product/>}/> */}
         <Route path='/use-cases' element={<Resources/>}/>
         <Route path='/pricing' element={<Pricing/>}/>
         <Route path='/how-it-works' element={<Work/>}/>
         <Route path='/support' element={<Support/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/sidebar' element={<Sidebar/>}/>
     </Routes>
   )
 }
