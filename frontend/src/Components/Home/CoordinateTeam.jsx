@@ -22,7 +22,8 @@ const CoordinateTeam = () => {
           Art Director
         </Text>
       </Box>
-      <Box w={["100%","100%","55%","65%"]}>
+      <Box w={["100%","100%","55%","65%"]}
+      >
         <Image src={image} alt="Coordinate_Image" />
       </Box>
     </Flex>
