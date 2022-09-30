@@ -27,7 +27,7 @@ const CFaLock = chakra(FaLock);
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [full_name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
@@ -35,7 +35,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
-      name,
+      full_name,
       email,
       password,
     };
