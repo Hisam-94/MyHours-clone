@@ -3,7 +3,6 @@ import { Box, Heading, Text, Grid, GridItem, Button } from "@chakra-ui/react";
 import styles from "./review.module.css";
 import data from "./data.json";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
 
 const CustomerReviews = () => {
   return (
@@ -15,11 +14,8 @@ const CustomerReviews = () => {
           fontSize={["36px"]}
           noOfLines={1}
           color="#375d75"
-          //   letterSpacing="1px"
           mt={["5px", "15px", "18px"]}
           align="center"
-          // bg='blue'
-
           p={["3px 8px", "5px 18px"]}
         >
           My Hours has changed the way our customers work
@@ -46,7 +42,6 @@ const CustomerReviews = () => {
       <Grid
         w="90%"
         m="auto"
-        // p={["0px 8px", "0px 18px"]}
         templateColumns={[
           "repeat(1fr)",
           "repeat(1fr)",
@@ -59,14 +54,7 @@ const CustomerReviews = () => {
       >
         {data.map((el) => (
           <GridItem key={el.id}>
-            <Text
-              //   letterSpacing="0.5px"
-              //   fontWeight="350"
-              //   fontSize={["15px", "4px", "16px"]}
-              p=".5rem"
-              fontSize={"lg"}
-              textAlign="justify"
-            >
+            <Text p=".5rem" fontSize={"lg"} textAlign="justify">
               {el.review1}
               <span className={styles.highlighter}>{el.review2}</span>
               {el.review3}
@@ -93,6 +81,7 @@ const CustomerReviews = () => {
           pt="3rem"
           rightIcon={<ArrowForwardIcon />}
           fontSize="2xl"
+          width={"100%"}
         >
           Read More Reviews
         </Button>
