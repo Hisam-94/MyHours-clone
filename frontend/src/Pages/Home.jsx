@@ -6,6 +6,7 @@ import TrackingExpense from '../Components/Home/TrackingExpense'
 import Reports from '../Components/Home/Reports'
 import ToolsForOrganizations from '../Components/Home/ToolsForOrganizations'
 import CustomerReviews from '../Components/Home/Customer Reviews/CustomerReviews'
+import ContactDetails from '../Components/Home/ContactDetails'
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
       <TrackingExpense/>
       <Reports/>
       <ToolsForOrganizations/>
-      <CustomerReviews/>      
+      <CustomerReviews/>
+      <ContactDetails/>      
     </div>
   )
 }

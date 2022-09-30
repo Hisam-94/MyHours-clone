@@ -12,7 +12,7 @@ const CustomerReviews = () => {
         <Heading
           w="100%"
           as="h1"
-          fontsize={["36px"]}
+          fontSize={["36px"]}
           noOfLines={1}
           color="#375d75"
           //   letterSpacing="1px"
@@ -57,8 +57,8 @@ const CustomerReviews = () => {
         gap={"3rem"}
         mt="30px"
       >
-        {data.map((el, ind) => (
-          <GridItem>
+        {data.map((el) => (
+          <GridItem key={el.id}>
             <Text
               //   letterSpacing="0.5px"
               //   fontWeight="350"
