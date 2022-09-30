@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 import { BrowserRouter } from "react-router-dom";
+
+// chakra UI
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "@chakra-ui/theme";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <App />
       </ChakraProvider>
     </BrowserRouter>

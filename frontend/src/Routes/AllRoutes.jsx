@@ -5,8 +5,9 @@ import Login from '../Pages/Login'
 import Pricing from '../Pages/Pricepage/Pricing'
 import Resources from '../Pages/Resources/Resources'
 import Support from '../Pages/Support/Support'
+import Teamform from '../Pages/TeamFromValid/Teamform'
+import Teamuser from '../Pages/TeamUser/Teamuser'
 import Work from '../Pages/Work'
-
 
 const AllRoutes = () => {
   return (
@@ -19,8 +20,10 @@ const AllRoutes = () => {
         {/* <Route path='/support' element={<Support/>}/> */}
         <Route path='/login' element={<Login/>}/>
         {/* <Route path='/signup' element={<SignUp/>}/> */}
+        <Route path='/teamform' element={<Teamform/>}/>
+        <Route path='/teamuser' element={<Teamuser/>}/>
     </Routes>
   )
 }
 
-export default AllRoutes
+export default AllRoutes;
