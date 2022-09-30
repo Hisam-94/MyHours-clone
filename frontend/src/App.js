@@ -5,12 +5,12 @@ import AllRoutes from './Routes/AllRoutes'
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/> */}
-      {/* <AllRoutes/>      */}
+      <Navbar/>
+      <AllRoutes/>     
 
       {/* branch day03 */}
-      <h1>Team page</h1>
-      <AddTeam/>
+      {/* <h1>Team page</h1> */}
+      {/* <AddTeam/> */}
     </div>
   );
 }
