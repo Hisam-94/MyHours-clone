@@ -6,6 +6,7 @@ const {connection} = require("./Config/db")
 const {userController} = require("./Routes/user.routes")
 const{teamController} = require("./Routes/team.route")
 const{teamMemberController} = require("./Routes/teamMember.route")
+const{clientController} = require("./Routes/client.routes")
 
 
 const { authentication } = require("./Middlewares/authentication");
@@ -24,6 +25,7 @@ app.use("/user" , userController);
 app.use(authentication)
 app.use("/team", teamController)
 app.use("/teammember", teamMemberController)
+app.use("/client", clientController)
 
 app.listen(PORT, async()=>{
 
