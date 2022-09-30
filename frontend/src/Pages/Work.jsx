@@ -98,6 +98,80 @@ const Work = () => {
         </div>
     </div>
 
+
+    {/* **********************Section-4****************** */}
+    <div className={style.cont4}>
+        <div className={style.cont4Div1}>
+            <img className={style.image1} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fc4e6bd377fbe34a0cc7a0f_HIW-7-p-500.png" alt="" />
+        </div>
+        <div className={style.cont4Div2}>
+            <h2 className={style.heading4}>Keep clients in the loop with scheduled email reports</h2>
+            <div className={style.textBlock4}>Setting and downloading reports each month takes precious time. Save your report settings and have My Hours send it to you or your clients directly every period.</div>
+        </div>
+    </div>
+
+
+     {/* **********************Section-4 - 2****************** */}
+     <div className={style.cont4}>
+        <div className={style.cont4Div1}>
+            <img className={style.image1} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fc4e6d0c755c679d71eda9f_HIW-8-p-500.png" alt="" />
+        </div>
+        <div className={style.cont4Div2}>
+            <h2 className={style.heading4}>Create invoices straight from your tracked hours</h2>
+            <div className={style.textBlock4}>No need for an additional tool that handles the invoicing. Calculate the billable amount for each client and generate a numbered invoice that can be sent via email straight away.</div>
+        </div>
+    </div>
+
+      {/* **********************Section-4 - 3****************** */}
+      <div className={style.cont4}>
+        <div className={style.cont4Div1}>
+            <img className={style.image1} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fc913df96a46f4b42ee4264_Roles-p-800.png" alt="" />
+        </div>
+        <div className={style.cont4Div2}>
+            <h2 className={style.heading4}>Flexible, but simple access roles</h2>
+            <div className={style.textBlock4}>With a simple 3-role system, you’ll always know who sees what. You can hide costs and billable amounts from anyone, except account administrators.</div>
+        </div>
+    </div>
+
+
+      {/* **********************Section-4 - 4****************** */}
+      <div className={style.cont4}>
+        <div className={style.cont4Div1}>
+            <img className={style.image1} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fc91420b5951fed1bb2a187_Chickens(1).png" alt="" />
+        </div>
+        <div className={style.cont4Div2}>
+            <h2 className={style.heading4}>Count your chickens and calculate your costs</h2>
+            <div className={style.textBlock4}>On top of billable rates, teams can add labor costs and expenses. Monitor your project costs with a (monthly) budget and calculate your profits or losses.</div>
+        </div>
+    </div>
+
+
+      {/* **********************Section-5****************** */}
+
+    <div className={style.cont4}>
+        <div className={style.cont4Div1}>
+            <h2 className={style.heading4}>Sync your data with more than a 1000 tools</h2>
+            <div className={style.textBlock4}>Transfer clients, projects and tasks from Quickbooks and other solutions via Zapier. Documented API enables tech-savvy folks to build their own integrations.</div>
+            <br /> <br />
+            <img className={style.image1} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fc9145d6e47e935f0570ff3_Integrations-p-500.png" alt="" />
+        </div>
+        <div className={style.cont4Div2}>
+            <h2 className={style.heading4}>Track time on the go with a mobile app</h2>
+            <div className={style.textBlock4}>Besides tracking time, add new projects, manage tasks and view reports - all through our mobile apps. Both iOS and Android are supported.</div>
+            <br /> <br />
+            <img className={style.image1} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fd73713f912e4498947d1a3_HIW-mobile%20(1)(1)-p-500.png" alt="" />
+        </div>
+    </div>
+
+      {/* **********************Section-6****************** */}
+      <div className={style.cont6}>
+           <div>
+            <img className={style.image6} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fc4fa86e0322e7deff06f6e_Group%203.png" alt="" />
+           </div>
+           <h2 className={style.heading6}>No, you cannot spy on your employees with My Hours</h2>
+           <div className={style.textBlock6}>My Hours does not record your or your employees’ screens. No screenshots, no apps tracked, <span className={style.span6}> no employee monitoring. </span> Of course, you are free to view work logs that your team members have entered.</div>
+      </div>
+
     </div>
   )
 }
