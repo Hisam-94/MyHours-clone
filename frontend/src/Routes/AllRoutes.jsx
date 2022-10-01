@@ -5,11 +5,11 @@ import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import SignUp from '../Pages/SignUp'
 import Pricing from '../Pages/Pricepage/Pricing'
-import { AddProject } from '../Pages/Projects/AddProject'
 import Projects from '../Pages/Projects/Projects'
 import Resources from '../Pages/Resources/Resources'
 import Support from '../Pages/Support/Support'
 import Work from '../Pages/Work'
+import Addallproject from '../Pages/Projects/Addallproject'
 import Teamuser from '../Pages/TeamUser/Teamuser'
 import Teamform from '../Pages/TeamFromValid/Teamform'
 import Editform from '../Pages/EditUser/Editform'
@@ -24,7 +24,7 @@ const AllRoutes = () => {
         <Route path='/support' element={<Support/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/projects' element={<Projects/>}/>
-        <Route path='/addprojects' element={<AddProject/>}/>
+        <Route path='/addprojects' element={<Addallproject/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/sidebar' element={<Sidebar/>}/>
         <Route path='/teams' element={<Teamuser/>}/>
