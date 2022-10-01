@@ -25,7 +25,7 @@ import { AiOutlineBarChart } from "react-icons/ai";
 
 const Sidebar = () => {
   return (
-    <Box bgColor="#f8f9fa" w="17%">
+    <Box bgColor="#f8f9fa">
       <Flex
         className={styled.logo}
         style={{
