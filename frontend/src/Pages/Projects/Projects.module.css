@@ -37,9 +37,10 @@ justify-content: space-between;
 
 .head1{
     font-size: 2.5rem;
-    font-weight: 500;
+    /* font-weight: 500; */
     line-height: 1.2;
-    margin: 0 !important;
+    color: black;
+    margin-bottom: 2rem;
 }
 
 .btn{
@@ -120,22 +121,11 @@ justify-content: space-between;
     border-radius: 0.25rem;
 }
 
-.bottomSection2{
-
-}
-
-.hr{
-    height: 10px;
-    /* border: 2px solid black; */
-    display: block;
-    width: 100%;
-    background-color: gray;
-}
 
 .table th{
     width: 18%;
-    border: 2px solid black;
-    text-align: center;
+    /* border: 2px solid black; */
+    text-align: left;
 }
 
 .tophead1{

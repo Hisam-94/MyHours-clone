@@ -1,9 +1,26 @@
 import React from 'react'
 import style from "./Projects.module.css";
 import { AiOutlineClose } from "react-icons/ai";
-import { Box, Heading, Table, Text, Th, Tr } from '@chakra-ui/react';
+import { Box, Heading, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
+import {Link} from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react';
+import { getProject } from '../../Redux/Projects/action';
+import { ProjectsData } from './ProjectsData';
 
 const Projects = () => {
+    const projects = useSelector((state) => state.project.projects);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      if(projects?.length === 0){
+        getProject(dispatch)
+      }
+    }, []);
+
+    console.log("projects", projects);
+
+
   return (
     <Box className={style.mainDiv}>
         <Box className={style.div1}></Box>
@@ -16,7 +33,9 @@ const Projects = () => {
                     <Heading as={"h1"} className={style.head1}>Projects</Heading>
                 </Box>
                 <Box>
-                    <button className={style.btn}> + Add new project </button>
+                   <Link to='/addprojects'> 
+                      <button className={style.btn}> + Add new project </button>
+                   </Link>
                 </Box>
             </Box>
 
@@ -36,17 +55,21 @@ const Projects = () => {
 
             {/* ***************Section-3********************************* */}
             <Table className={style.table}>
-                <Th>NAME</Th>
-                <Th>CLIENT</Th>
-                <Th>TOTAL HOURS</Th>
-                <Th>BILLABLE AMOUNT</Th>
-                <Th>CREATED</Th>
-                <Th>STATUS</Th>
+                <Thead>
+                    <Tr>
+                        <Th>NAME</Th>
+                        <Th>CLIENT</Th>
+                        <Th>TOTAL HOURS</Th>
+                        <Th>BILLABLE AMOUNT</Th>
+                        <Th>CREATED</Th>
+                        <Th>STATUS</Th>
+                    </Tr>
+                </Thead>
+    
+                <Tbody>
+                    <ProjectsData project={projects} />
+                </Tbody>
 
-                <br />
-                {/* <hr className={style.hr} /> */}
-
-                <Tr></Tr>
             </Table>
 
         </Box>
