@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -10,55 +9,72 @@ import {
   Input,
   Textarea,
 } from "@chakra-ui/react";
-import { QuestionOutlineIcon } from "@chakra-ui/icons";
-
-import Sidebar from "../Sidebar/Sidebar";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
 
-const AddClient = () => {
+const EditClient = () => {
+  const [form, setForm] = useState({});
+  console.log("form:", form);
+  const params = useParams();
+  const id = params.id;
+  console.log("params",id)
   const navigate = useNavigate();
-  const [Client, SetClient] = useState({});
+  const token = localStorage.getItem("psc_app_token");
 
   const handleChange = (e) => {
-    SetClient({
-      ...Client,
-      [e.target.name]: e.target.value,
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
     });
+  };  
+
+  const getData = async () => {
+    console.log(form);
+    const res = await axios(`http://localhost:8080/client/${id}`,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }},);
+    setForm(res.data);
+    console.log(res.data);
   };
-  const postData = (client) => {
-    const token = localStorage.getItem("psc_app_token");
-    console.log(token);
-    return axios
-      .post("http://localhost:8080/client/create", client, {
+
+  const handlePatch = async () => {
+    console.log(form);
+    await axios.put(`http://localhost:8080/editclient/${id}`, form,{
         headers: {
           Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((r) => {
-        console.log(r.data);
-        alert("Client added successfully");
-      })
-      .catch((err) => console.log(err));
+        }
+      });
+    navigate("/Clients");
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(Client);
-    postData(Client);
-    navigate("/clients");
+    handlePatch();
+
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Flex>
       <Box w="17%">
         <Sidebar />
       </Box>
-      <Box w="40%" m="auto" textAlign={"start"} mt="3rem">
-        <Heading fontWeight={"semibold"}>
-          New client{" "}
-          <QuestionOutlineIcon style={{ width: "16px", color: "#3b8fc2" }} />
-        </Heading>
+      <Box w="40%" m="auto" textAlign={"start"}>
+        <Heading>Edit client</Heading>
         <FormControl onSubmit={handleSubmit} style={{ width: "100%" }}>
-          <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+          <FormLabel
+            fontSize="12px"
+            mt="1rem"
+            color="gray.600"
+            value={form.name}
+          >
             NAME
           </FormLabel>
           <Input
@@ -66,17 +82,30 @@ const AddClient = () => {
             w="100%"
             variant="outline"
             name="name"
+            value={form.name}
           ></Input>
-          <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+          <FormLabel
+            fontSize="12px"
+            mt="1rem"
+            color="gray.600"
+            value={form.contactperson}
+          >
             CONTACT PERSON
           </FormLabel>
           <Input
+            type="text"
             onChange={handleChange}
             w="100%"
             variant="outline"
-            name="contact_person"
+            name="contactperson"
+            value={form.contactperson}
           ></Input>
-          <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+          <FormLabel
+            fontSize="12px"
+            mt="1rem"
+            color="gray.600"
+            value={form.email}
+          >
             EMAIL
           </FormLabel>
           <Input
@@ -85,8 +114,14 @@ const AddClient = () => {
             w="100%"
             variant="outline"
             name="email"
+            value={form.email}
           ></Input>
-          <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+          <FormLabel
+            fontSize="12px"
+            mt="1rem"
+            color="gray.600"
+            value={form.phone}
+          >
             PHONE
           </FormLabel>
           <Input
@@ -94,6 +129,7 @@ const AddClient = () => {
             w="100%"
             variant="outline"
             name="phone"
+            value={form.phone}
           ></Input>
           <FormLabel fontSize="12px" mt="1rem" color="gray.600">
             ADDRESS
@@ -104,6 +140,7 @@ const AddClient = () => {
             h="4rem"
             w="100%"
             name="address"
+            value={form.address}
           ></Textarea>
           <HStack spacing={1} justifyContent="space-betwee6">
             <Box w="46%">
@@ -112,9 +149,10 @@ const AddClient = () => {
               </FormLabel>
               <Input
                 onChange={handleChange}
+                value={form.taxname}
                 w="100%"
                 variant="outline"
-                name="tax_name"
+                name="taxName"
               ></Input>
             </Box>
             <Box w="46%">
@@ -124,9 +162,10 @@ const AddClient = () => {
               <Input
                 type="number"
                 onChange={handleChange}
+                value={form.taxparcentage}
                 w="100%"
                 variant="outline"
-                name="tax_percentage"
+                name="taxparcentage"
               ></Input>
             </Box>
           </HStack>
@@ -136,8 +175,9 @@ const AddClient = () => {
           <Input
             onChange={handleChange}
             w="100%"
+            value={form.taxnumber}
             variant="outline"
-            name="tax_number"
+            name="taxNumber"
           ></Input>
           <Button
             fontSize={"lg"}
@@ -178,4 +218,4 @@ const AddClient = () => {
   );
 };
 
-export default AddClient;
+export default EditClient;

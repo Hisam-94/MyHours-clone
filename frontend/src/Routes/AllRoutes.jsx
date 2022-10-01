@@ -15,6 +15,7 @@ import Teamform from '../Pages/TeamFromValid/Teamform'
 import Editform from '../Pages/EditUser/Editform'
 import Clients from '../Pages/Application/Clients/Clients'
 import AddClient from '../Pages/Application/Clients/AddClient'
+import EditClient from '../Pages/Application/Clients/EditClient'
 
 const AllRoutes = () => {
   return (
@@ -34,6 +35,8 @@ const AllRoutes = () => {
         <Route path='/edit/:id' element={<Editform/>}/>
         <Route path='/clients' element={<Clients/>}/>
         <Route path='/addclient' element={<AddClient/>}/>
+        <Route path='/editclient/:id' element={<EditClient/>}/>
+        
     </Routes>
   )
 }
