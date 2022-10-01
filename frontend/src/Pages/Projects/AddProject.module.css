@@ -44,12 +44,20 @@
 .head1{
     font-size: 2.5rem;
     /* font-weight: 500; */
+    color: black;
     line-height: 1.2;
     margin-bottom: 2rem;
 }
 
 .heading{
     margin-bottom: 10px;
+    color: #818890;
+    font-weight: 10px;
+}
+
+.text{
+    color: #818890;
+
 }
 
 .box{

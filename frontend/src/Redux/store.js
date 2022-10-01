@@ -6,10 +6,13 @@ import {
   applyMiddleware,
 } from "redux";
 import thunk from "redux-thunk";
+import { projectReducer } from "./Projects/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  project: projectReducer
+});
 
 const store = legacy_createStore(
   rootReducer,

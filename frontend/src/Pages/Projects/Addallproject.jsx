@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./AddProject.module.css";
 import { Box, Button, FormControl, FormLabel, H1, Heading, Input, Text, Textarea } from "@chakra-ui/react";
+import { addProject } from "../../Redux/Projects/action";
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from "react";
 
 const Addallproject = () => {
+
+    const dispatch = useDispatch();
+    const projects = useSelector((state) => state.project.projects);
+    console.log('projects:', projects)
+
+    const [name, setName] = useState("");
+    const [client, setClient] = useState("");
+    const [desc, setDesc] = useState("");
+
+    const handleSubmit = () => {
+        if(name || client || desc){
+            const payload = {
+                project_name: name,
+                client: client,
+                desc: desc
+            }
+            dispatch(addProject(payload));
+            setName("");
+            setClient("");
+            setDesc("");
+            console.log('payload:', payload)
+        }
+    }
+
+    
+
   return (
     <div className={style.mainDiv}>
       <div className={style.div1}></div>
@@ -18,7 +47,7 @@ const Addallproject = () => {
           <Box>
           <FormControl id="name">
             <FormLabel className={style.label}>NAME</FormLabel>
-            <Input type="text" />
+            <Input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Enter name of the project...' />
           </FormControl>
         </Box>
         <br />
@@ -26,14 +55,14 @@ const Addallproject = () => {
         <Box>
           <FormControl id="client">
             <FormLabel className={style.label}>CLIENT</FormLabel>
-            <Input type="text" />
+            <Input type="text" value={client} onChange={(e) => setClient(e.target.value)} />
           </FormControl>
         </Box>
   <br />
         <Box>
         <FormControl id="client">
             <FormLabel className={style.label}>DESCRIPTION</FormLabel>
-          <Textarea></Textarea>
+          <Textarea value={desc} onChange={(e) => setDesc(e.target.value)} />
           </FormControl>
         </Box>
 
@@ -41,7 +70,7 @@ const Addallproject = () => {
 
         <Box className={style.box}>
             <Heading className={style.heading} as={'h3'}>Billable settings</Heading>
-            <Text>Team member-based rate</Text>
+            <Text className={style.text}>Team member-based rate</Text>
         </Box>
 
         <br /> <br />
@@ -49,7 +78,7 @@ const Addallproject = () => {
 
         <Box className={style.box}>
             <Heading className={style.heading} as={'h3'}>Rounding of time</Heading>
-            <Text>No rounding</Text>
+            <Text className={style.text}>No rounding</Text>
         </Box>
 
         <br /> <br />
@@ -57,7 +86,7 @@ const Addallproject = () => {
 
         <Box className={style.box}>
             <Heading className={style.heading} as={'h3'}>Approval settings</Heading>
-            <Text>Approval is not required</Text>
+            <Text className={style.text}>Approval is not required</Text>
         </Box>
 
         <br /> <br />
@@ -65,7 +94,7 @@ const Addallproject = () => {
         <Box className={style.btnBox}>
             <Box>
 
-            <button className={style.btn}>Create Project</button>
+            <button className={style.btn} onClick={handleSubmit}>Create Project</button>
             </Box>
             <Box>
 
