@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { getProject } from '../../Redux/Projects/action';
 import { ProjectsData } from './ProjectsData';
+import Sidebar from "../Application/Sidebar/Sidebar"
 
 const Projects = () => {
     const projects = useSelector((state) => state.project.projects);
@@ -23,7 +24,9 @@ const Projects = () => {
 
   return (
     <Box className={style.mainDiv}>
-        <Box className={style.div1}></Box>
+        <Box className={style.div1}>
+            <Sidebar />
+        </Box>
 
 
         <Box className={style.div2}>
