@@ -13,6 +13,7 @@ import Addallproject from '../Pages/Projects/Addallproject'
 import Teamuser from '../Pages/TeamUser/Teamuser'
 import Teamform from '../Pages/TeamFromValid/Teamform'
 import Editform from '../Pages/EditUser/Editform'
+import { MembersPage } from '../Pages/Projects/MembersPage'
 
 const AllRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const AllRoutes = () => {
         <Route path='/how-it-works' element={<Work/>}/>
         <Route path='/support' element={<Support/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/project-users' element={<MembersPage/>}/>
         <Route path='/projects' element={<Projects/>}/>
         <Route path='/addprojects' element={<Addallproject/>}/>
         <Route path='/signup' element={<SignUp/>}/>
