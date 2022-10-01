@@ -13,6 +13,7 @@ import Work from '../Pages/Work'
 import Teamuser from '../Pages/TeamUser/Teamuser'
 import Teamform from '../Pages/TeamFromValid/Teamform'
 import Editform from '../Pages/EditUser/Editform'
+import Allteam from '../Pages/AllTeam/Allteam'
 
 const AllRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const AllRoutes = () => {
         <Route path='/teams' element={<Teamuser/>}/>
         <Route path='/teamform' element={<Teamform/>}/>
         <Route path='/edit/:id' element={<Editform/>}/>
+        <Route path='/allteam' element={<Allteam/>}/>
     </Routes>
   )
 }

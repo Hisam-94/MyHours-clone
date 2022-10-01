@@ -9,11 +9,11 @@ const validate = values => {
     if (!values.agree) {
       errors.agree = "Agree to join all new projects"
     }
-    if (!values.favoriteColor) {
-      errors.favoriteColor = 'Required'
+    if (!values.role) {
+      errors.role = 'Required'
     } 
-    // else if (values.favoriteColor === 'admin') {
-    //   errors.favoriteColor = 'Not green! Gross!'
+    // else if (values.role === 'admin') {
+    //   errors.role = 'Not green! Gross!'
     // }
     if (!values.notes) {
       errors.notes = 'Required'
