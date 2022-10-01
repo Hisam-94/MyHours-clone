@@ -16,6 +16,7 @@ import Editform from '../Pages/EditUser/Editform'
 import { MembersPage } from '../Pages/Projects/MembersPage'
 import Clients from '../Pages/Application/Clients/Clients'
 import AddClient from '../Pages/Application/Clients/AddClient'
+import EditClient from '../Pages/Application/Clients/EditClient'
 import Allteam from '../Pages/AllTeam/Allteam'
 
 const AllRoutes = () => {
@@ -37,6 +38,7 @@ const AllRoutes = () => {
         <Route path='/edit/:id' element={<Editform/>}/>
         <Route path='/clients' element={<Clients/>}/>
         <Route path='/addclient' element={<AddClient/>}/>
+        <Route path='/editclient/:id' element={<EditClient/>}/>        
         <Route path='/allteam' element={<Allteam/>}/>
     </Routes>
   )
