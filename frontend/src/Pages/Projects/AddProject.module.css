@@ -32,7 +32,6 @@
     width: 54%;
     margin: auto;
     box-sizing: border-box;
-    /* border: 2px solid red; */
     margin-bottom: 1rem;
 }
 
@@ -57,7 +56,6 @@
 
 .text{
     color: #818890;
-
 }
 
 .box{
@@ -68,23 +66,6 @@
     background-color: #f9fafb;
 }
 
-.formRow1{
-    box-sizing: border-box;
-    /* border: 2px solid black; */
-    margin-bottom: 30px;
-}
-
-.formRow2{
-    padding-right: 5px;
-    padding-left: 5px;
-    margin-bottom: 1rem;
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-    position: relative;
-    width: 100%;
-}
-
 .label{
     font-size: 0.8rem;
     font-weight: 600;
@@ -92,42 +73,6 @@
     color: #6C757D;
     display: inline-block;
     margin-bottom: 0.3rem;
-}
-
-.input{
-    border-color: #cc5252;
-    padding-right: calc(1.5em + 0.75rem);
-    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23cc5252' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23cc5252' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E"); */
-    background-repeat: no-repeat;
-    background-position: center right calc(0.375em + 0.1875rem);
-    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #CED4DA;
-    border-radius: 0.25rem;
-
-    overflow: visible;
-    margin: 0;
-    font-family: inherit;
-    writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    text-align: start;
-    appearance: auto;
-    cursor: text;
 }
 
 .btn{
@@ -157,10 +102,3 @@
     justify-content: space-between;
 }
 
-.row1{
-    display: flex;
-}
-
-.span{
-    margin-left: 10px;
-}

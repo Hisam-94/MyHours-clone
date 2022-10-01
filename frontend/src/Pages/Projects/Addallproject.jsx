@@ -30,11 +30,19 @@ const Addallproject = () => {
         }
     }
 
+    const handleCancel = () => {
+      if(name || client || desc){
+        setName("");
+            setClient("");
+            setDesc("");
+      }
+    }
+
     
 
   return (
-    <div className={style.mainDiv}>
-      <div className={style.div1}></div>
+    <Box className={style.mainDiv}>
+      <Box className={style.div1}></Box>
       {/* ************************************ */}
       <Box className={style.div2}>
         <Box className={style.topSection2}>
@@ -98,7 +106,7 @@ const Addallproject = () => {
             </Box>
             <Box>
 
-            <button className={style.btn2}> Cancel </button>
+            <button className={style.btn2} onClick={handleCancel}> Cancel </button>
             </Box>
         </Box>
 
@@ -106,7 +114,7 @@ const Addallproject = () => {
 
         
       </Box>
-    </div>
+    </Box>
   );
 };
 
