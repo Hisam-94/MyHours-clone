@@ -10,6 +10,7 @@ import Projects from '../Pages/Projects/Projects'
 import Resources from '../Pages/Resources/Resources'
 import Support from '../Pages/Support/Support'
 import Work from '../Pages/Work'
+import Addallproject from '../Pages/Projects/Addallproject'
 
 
 const AllRoutes = () => {
@@ -22,7 +23,7 @@ const AllRoutes = () => {
         <Route path='/support' element={<Support/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/projects' element={<Projects/>}/>
-        <Route path='/addprojects' element={<AddProject/>}/>
+        <Route path='/addprojects' element={<Addallproject/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/sidebar' element={<Sidebar/>}/>
     </Routes>
