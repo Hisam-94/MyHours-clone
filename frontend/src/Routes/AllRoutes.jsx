@@ -5,17 +5,19 @@ import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import SignUp from '../Pages/SignUp'
 import Pricing from '../Pages/Pricepage/Pricing'
-import { AddProject } from '../Pages/Projects/AddProject'
 import Projects from '../Pages/Projects/Projects'
 import Resources from '../Pages/Resources/Resources'
 import Support from '../Pages/Support/Support'
 import Work from '../Pages/Work'
+import Addallproject from '../Pages/Projects/Addallproject'
 import Teamuser from '../Pages/TeamUser/Teamuser'
 import Teamform from '../Pages/TeamFromValid/Teamform'
 import Editform from '../Pages/EditUser/Editform'
+import { MembersPage } from '../Pages/Projects/MembersPage'
 import Clients from '../Pages/Application/Clients/Clients'
 import AddClient from '../Pages/Application/Clients/AddClient'
 import EditClient from '../Pages/Application/Clients/EditClient'
+import Allteam from '../Pages/AllTeam/Allteam'
 
 const AllRoutes = () => {
   return (
@@ -26,8 +28,9 @@ const AllRoutes = () => {
         <Route path='/how-it-works' element={<Work/>}/>
         <Route path='/support' element={<Support/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/project-users' element={<MembersPage/>}/>
         <Route path='/projects' element={<Projects/>}/>
-        <Route path='/addprojects' element={<AddProject/>}/>
+        <Route path='/addprojects' element={<Addallproject/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/sidebar' element={<Sidebar/>}/>
         <Route path='/teams' element={<Teamuser/>}/>
@@ -35,8 +38,8 @@ const AllRoutes = () => {
         <Route path='/edit/:id' element={<Editform/>}/>
         <Route path='/clients' element={<Clients/>}/>
         <Route path='/addclient' element={<AddClient/>}/>
-        <Route path='/editclient/:id' element={<EditClient/>}/>
-        
+        <Route path='/editclient/:id' element={<EditClient/>}/>        
+        <Route path='/allteam' element={<Allteam/>}/>
     </Routes>
   )
 }
