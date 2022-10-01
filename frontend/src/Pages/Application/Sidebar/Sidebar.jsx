@@ -25,14 +25,14 @@ import { AiOutlineBarChart } from "react-icons/ai";
 
 const Sidebar = () => {
   return (
-    <Box w="17%" bgColor="#f8f9fa">
+    <Box bgColor="#f8f9fa">
       <Flex
         className={styled.logo}
         style={{
           position: "sticky",
           top: "0px",
           backgroundColor: "#f8f9fa",
-          padding: "1rem",
+          padding: "1rem 0rem 0rem 0rem",
         }}
       >
         <BsGrid3X3GapFill

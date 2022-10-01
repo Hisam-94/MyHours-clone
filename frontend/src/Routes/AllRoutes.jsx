@@ -10,7 +10,9 @@ import Resources from '../Pages/Resources/Resources'
 import Support from '../Pages/Support/Support'
 import Work from '../Pages/Work'
 import Addallproject from '../Pages/Projects/Addallproject'
-
+import Teamuser from '../Pages/TeamUser/Teamuser'
+import Teamform from '../Pages/TeamFromValid/Teamform'
+import Editform from '../Pages/EditUser/Editform'
 
 const AllRoutes = () => {
   return (
@@ -25,6 +27,9 @@ const AllRoutes = () => {
         <Route path='/addprojects' element={<Addallproject/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/sidebar' element={<Sidebar/>}/>
+        <Route path='/teams' element={<Teamuser/>}/>
+        <Route path='/teamform' element={<Teamform/>}/>
+        <Route path='/edit/:id' element={<Editform/>}/>
     </Routes>
   )
 }
