@@ -40,11 +40,11 @@ const Client = ({ client, handleDelete }) => {
                 )}
               </MenuButton>
               <MenuList>
-                <MenuItem onClick={() => navigate(`/editclient/${client.id}`)}>
+                <MenuItem onClick={() => navigate(`/editclient/${client._id}`)}>
                   Edit
                 </MenuItem>
                 <MenuItem>Archive</MenuItem>
-                <MenuItem onClick={() => handleDelete(client.id)}>
+                <MenuItem onClick={() => handleDelete(client._id)}>
                   Delete
                 </MenuItem>
               </MenuList>
