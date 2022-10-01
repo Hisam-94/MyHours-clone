@@ -14,6 +14,9 @@ import Teamuser from '../Pages/TeamUser/Teamuser'
 import Teamform from '../Pages/TeamFromValid/Teamform'
 import Editform from '../Pages/EditUser/Editform'
 import { MembersPage } from '../Pages/Projects/MembersPage'
+import Clients from '../Pages/Application/Clients/Clients'
+import AddClient from '../Pages/Application/Clients/AddClient'
+import Allteam from '../Pages/AllTeam/Allteam'
 
 const AllRoutes = () => {
   return (
@@ -32,6 +35,9 @@ const AllRoutes = () => {
         <Route path='/teams' element={<Teamuser/>}/>
         <Route path='/teamform' element={<Teamform/>}/>
         <Route path='/edit/:id' element={<Editform/>}/>
+        <Route path='/clients' element={<Clients/>}/>
+        <Route path='/addclient' element={<AddClient/>}/>
+        <Route path='/allteam' element={<Allteam/>}/>
     </Routes>
   )
 }
