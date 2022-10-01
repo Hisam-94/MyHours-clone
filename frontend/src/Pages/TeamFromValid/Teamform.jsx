@@ -32,17 +32,25 @@ import validate from "./validate";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// ! ON-SUBMIT :
 const onSubmit = async (values) => {
     await sleep(300);
+    console.log("ANS" , values)
     window.alert(JSON.stringify(values, 0, 2));
 };
 
 const Teamform = () => (
 <>
-    <CSSReset />
+   <Box display='flex'>
+   <Box w='20%' bg='green'>
+            <h1>SIDEBAR</h1>
+    </Box>
 
+   
+    <CSSReset />
+    
     <Box
-        w={'80%'} p={4} m="20px auto">
+        w={'80%'} pl={'5%'} pr={'15%'} m="20px auto">
         <Heading as="h1" m={4} size="xl" textAlign="left">
             Add Team Member
         </Heading>
@@ -246,6 +254,8 @@ const Teamform = () => (
         />
 
     </Box>
+   
+   </Box>
 </>
 
 )

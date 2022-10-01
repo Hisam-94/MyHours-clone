@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Editform from '../Pages/EditUser/Editform'
 import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import Pricing from '../Pages/Pricepage/Pricing'
@@ -21,6 +22,7 @@ const AllRoutes = () => {
         <Route path='/login' element={<Login/>}/>
         {/* <Route path='/signup' element={<SignUp/>}/> */}
         <Route path='/teamform' element={<Teamform/>}/>
+        <Route path='/edit/:id' element={<Editform />}/>
         <Route path='/teamuser' element={<Teamuser/>}/>
     </Routes>
   )
