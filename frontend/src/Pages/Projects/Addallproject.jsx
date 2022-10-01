@@ -4,6 +4,7 @@ import { Box, Button, FormControl, FormLabel, H1, Heading, Input, Text, Textarea
 import { addProject } from "../../Redux/Projects/action";
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react";
+import Sidebar from "../Application/Sidebar/Sidebar"
 
 const Addallproject = () => {
 
@@ -42,7 +43,9 @@ const Addallproject = () => {
 
   return (
     <Box className={style.mainDiv}>
-      <Box className={style.div1}></Box>
+      <Box className={style.div1}>
+        <Sidebar />
+      </Box>
       {/* ************************************ */}
       <Box className={style.div2}>
         <Box className={style.topSection2}>
