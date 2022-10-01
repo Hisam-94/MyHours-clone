@@ -128,8 +128,8 @@ const handlePatch = async () => {
           <FormLabel color="gray" mt="19" fontSize="13">
             ROLE
           </FormLabel>
-          <RadioGroup defaultValue={form.role}>
-            <Stack>
+          <RadioGroup textAlign={'start'} defaultValue={form.role}>
+            <Stack >
               <Stack
                 direction="row"
                 gap={10}
@@ -190,7 +190,7 @@ const handlePatch = async () => {
             </Stack>
           </RadioGroup>
 
-          <Accordion allowMultiple mt="30">
+          <Accordion textAlign={"start"} allowMultiple mt="30">
             <AccordionItem>
               <h2>
                 <AccordionButton>
