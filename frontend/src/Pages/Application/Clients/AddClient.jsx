@@ -39,7 +39,7 @@ const AddClient = () => {
         console.log(r.data);
         alert("Client added successfully");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("err",err));
   };
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -20,35 +20,35 @@ import { TiDownloadOutline } from "react-icons/ti";
 import axios from "axios";
 import Client from "./Client";
 
-const clients = [
-  {
-    id: 1,
-    name: "Hisamuddin",
-    contact_person: "Hisam",
-    email: "Hisam@gmail.com",
-  },
-  {
-    id: 2,
-    name: "Hisamuddin",
-    contact_person: "Hisam",
-    email: "Hisam@gmail.com",
-  },
-  {
-    id: 3,
-    name: "Hisamuddin",
-    contact_person: "Hisam",
-    email: "Hisam@gmail.com",
-  },
-  {
-    id: 4,
-    name: "Hisamuddin",
-    contact_person: "Hisam",
-    email: "Hisam@gmail.com",
-  },
-];
+// const clients = [
+//   {
+//     id: 1,
+//     name: "Hisamuddin",
+//     contact_person: "Hisam",
+//     email: "Hisam@gmail.com",
+//   },
+//   {
+//     id: 2,
+//     name: "Hisamuddin",
+//     contact_person: "Hisam",
+//     email: "Hisam@gmail.com",
+//   },
+//   {
+//     id: 3,
+//     name: "Hisamuddin",
+//     contact_person: "Hisam",
+//     email: "Hisam@gmail.com",
+//   },
+//   {
+//     id: 4,
+//     name: "Hisamuddin",
+//     contact_person: "Hisam",
+//     email: "Hisam@gmail.com",
+//   },
+// ];
 
 const Clients = () => {
-  // const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState([]);
   const token = localStorage.getItem("psc_app_token");
   const clientsData = () => {
     try {
@@ -56,11 +56,11 @@ const Clients = () => {
         .get(`http://localhost:8080/client`, {
           headers: {
             Authorization: `Bearer ${token}`,
-          },
+          }
         })
         .then((r) => {
           console.log(r.data);
-          // setClients(r.data);
+          setClients(r.data);
         });
     } catch (err) {
       console.log(err);
@@ -85,9 +85,9 @@ const Clients = () => {
   // //   .catch((err) => console.log(err))
   // // }
 
-  // useEffect(() => {
-  //   clientsData();
-  // }, []);
+  useEffect(() => {
+    clientsData();
+  }, []);
   return (
     <Flex>
       <Box w="17%">
@@ -161,7 +161,7 @@ const Clients = () => {
             <Tbody>
               {clients?.map((client) => (
                 <Client
-                  key={client.id}
+                  key={client._id}
                   client={client}
                   handleDelete={handleDelete}
                 />
