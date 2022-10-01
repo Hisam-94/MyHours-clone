@@ -24,9 +24,36 @@ const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const payload = {
+      email,
+      password
+    };
+    
+    fetch("http://localhost:8080/user/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if(res.token){
+          localStorage.setItem('psc_app_token', res.token);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <Flex
@@ -44,7 +71,7 @@ const Login = () => {
         alignItems="center"
       >
         <Box boxShadow='2xl' rounded='md' bg='white' minW={{ base: "90%", md: "468px" }}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <Stack
               spacing={4}
               p="1rem"
@@ -71,7 +98,7 @@ const Login = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" placeholder="email address" onChange={(e)=>setEmail(e.target.value)} />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -84,6 +111,7 @@ const Login = () => {
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
+                    onChange={(e)=>setPassword(e.target.value)}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>

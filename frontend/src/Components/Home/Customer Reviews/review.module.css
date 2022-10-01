@@ -1,0 +1,18 @@
+/* .highlighter {
+    background: rgb(125, 230, 202);
+    background: linear-gradient(
+      90deg,
+      rgb(139, 223, 200) 3%,
+      rgb(224, 255, 247) 100%
+    );
+    border-radius: 10px;
+  } */
+
+  .highlighter{
+    /* padding-left: 0; */
+    border-radius: 5px 10px;
+    background-color: transparent;
+    background-image: radial-gradient(circle farthest-corner at 0 0,rgba(41,186,96,.5),rgba(190,241,209,.8));
+    background-clip: border-box;
+    -webkit-text-fill-color: inherit;
+  }

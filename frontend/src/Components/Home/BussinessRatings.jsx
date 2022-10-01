@@ -16,24 +16,24 @@ const BussinessRatings = () => {
       <Heading fontWeight={"normal"} fontSize="3xl" mb="4rem">
       Trusted by more than <Text as="span" fontWeight={"bold"}>100.000 businesses</Text> worldwide
       </Heading>
-      <Flex justifyContent="center" gap="6rem" mb="3rem">
+      <Flex justifyContent="space-between" mb="3rem" mr="auto" ml="auto" w={["90%","90%","80%","60%"]}>
         <Box>
-          <Image src={image1} alt="Rating_Image_1"/>
+          <Image src={image1} alt="Rating_Image_1" h="80%"/>
         </Box>
         <Box>
-        <Image src={image2} alt="Rating_Image_2"/>
+        <Image src={image2} alt="Rating_Image_2" h="80%"/>
         </Box>
         <Box>
-        <Image src={image3} alt="Rating_Image_3"/>
+        <Image src={image3} alt="Rating_Image_3" h="80%"/>
         </Box>
       </Flex>
-      <Flex justifyContent="space-around" alignItems="center" mb="3rem">      
-        <Image src={image4} alt="Company_Image_1" w="7rem" h="100%"/>
-        <Image src={image5} alt="Company_Image_2" w="7rem" h="100%"/>
-        <Image src={image6} alt="Company_Image_3" w="7rem" h="100%"/>
-        <Image src={image7} alt="Company_Image_4" w="7rem" h="100%"/>
-        <Image src={image8} alt="Company_Image_5" w="7rem" h="100%"/>
-        <Image src={image9} alt="Company_Image_6" w="7rem" h="100%"/>           
+      <Flex justifyContent="space-around" alignItems="center" mb="3rem"  >      
+        <Image src={image4} alt="Company_Image_1" w="10%" h="10%"/>
+        <Image src={image5} alt="Company_Image_2" w="10%" h="10%"/>
+        <Image src={image6} alt="Company_Image_3" w="10%" h="10%"/>
+        <Image src={image7} alt="Company_Image_4" w="10%" h="10%"/>
+        <Image src={image8} alt="Company_Image_5" w="10%" h="10%"/>
+        <Image src={image9} alt="Company_Image_6" w="10%" h="10%"/>           
       </Flex>
     </Box>
   )

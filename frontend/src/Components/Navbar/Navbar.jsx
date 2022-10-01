@@ -6,15 +6,14 @@ import {
   ButtonGroup,
   Flex,
   Image,
-  Menu,
-  MenuButton,
   Spacer,
-  MenuList,
-  MenuItem, 
-  IconButton
+  IconButton,
+  useDisclosure,
+  ListItem,
+  List,
 } from "@chakra-ui/react";
-import { AddIcon, EditIcon, ExternalLinkIcon, HamburgerIcon, RepeatIcon,  } from '@chakra-ui/icons'
-import { HiChevronDown } from "react-icons/hi";
+
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import styles from "../Navbar/navbar.module.css";
 
 const Nav = [
@@ -41,18 +40,17 @@ const Nav = [
 ];
 
 const Navbar = () => {
-  // const IconButton = true
+  const { isOpen, onToggle } = useDisclosure();
+  console.log(isOpen);
   return (
-    <div className={styles.navSticky}>
-      <Flex
-        alignItems={"center"}
-        padding="1em 3em 1em 3em"
-        h={"10hv"}
-        boxShadow="md"
-        p="5"
-        bg="white"
-        // zIndex={99999}
-      >
+    <Box
+      className={styles.navSticky}
+      boxShadow="md"
+      p="5"
+      bg="white"
+      h={isOpen ? "100%" : "100%"}
+    >
+      <Flex alignItems={"center"} padding="0em 3em">
         <Box>
           <Link to="/">
             <Image
@@ -66,7 +64,7 @@ const Navbar = () => {
           {Nav.map((el) => (
             <NavLink
               style={{
-                marginLeft: "3em",
+                marginLeft: "2em",
                 display: "inline-block",
                 fontSize: "17px",
                 color: "#3b8fc2",
@@ -92,44 +90,54 @@ const Navbar = () => {
                 Get My Hours Free
               </Button>
             </Link>
-            {/* <Button
-                className="nav-btn-getStarted"
-                _hover={{ bgColor: "#3973ac", color: "white" }}
-                bgColor={"#3b8fc2"}
-                color="white"
-                ml={"1rem"}
-              >
-                Get My Hours Free
-              </Button>         */}
-              <Box className={styles.show}>
-            <Menu >
-              <MenuButton
-                as={IconButton}
-                aria-label="Options"
-                icon={<HamburgerIcon />}
-                variant="outline"
-                
+            <Box className={styles.show}>
+              <IconButton
+                onClick={onToggle}
+                icon={
+                  isOpen ? (
+                    <CloseIcon w={3} h={3} />
+                  ) : (
+                    <HamburgerIcon w={5} h={5} />
+                  )
+                }
+                variant={"ghost"}
+                aria-label={"Toggle Navigation"}
               />
-              <MenuList>
-                <MenuItem icon={<AddIcon />} command="⌘T">
-                  New Tab
-                </MenuItem>
-                <MenuItem icon={<ExternalLinkIcon />} command="⌘N">
-                  New Window
-                </MenuItem>
-                <MenuItem icon={<RepeatIcon />} command="⌘⇧N">
-                  Open Closed Tab
-                </MenuItem>
-                <MenuItem icon={<EditIcon />} command="⌘O">
-                  Open File...
-                </MenuItem>
-              </MenuList>
-            </Menu>
             </Box>
           </ButtonGroup>
         </Box>
       </Flex>
-    </div>
+      <Box className={isOpen ? styles.open : styles.hide && styles.myshow}>
+        <List textAlign={"start"} ml="3rem" fontSize={"lg"} cursor="pointer">
+          <Link to="/how-it-works">
+            <ListItem>How it works</ListItem>
+          </Link>
+          <Link to="/use-cases">
+            <ListItem>Use cases</ListItem>
+          </Link>
+          <Link to="/pricing">
+            <ListItem>Pricing</ListItem>
+          </Link>
+          <Link to="/support">
+            <ListItem>Support</ListItem>
+          </Link>
+          <Link to="/login">
+            <ListItem>Signin</ListItem>
+          </Link>
+        </List>
+        <Link to="/signup">
+          <Button
+            className="nav-btn-getStarted"
+            _hover={{ bgColor: "#3973ac", color: "white" }}
+            bgColor={"#3b8fc2"}
+            color="white"
+            ml={"1rem"}
+          >
+            Get My Hours Free
+          </Button>
+        </Link>
+      </Box>
+    </Box>
   );
 };
 
