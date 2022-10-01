@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "project_name": "react project",
+      "client": "client1",
+      "desc": "my frontend project"
+    },
+    {
+      "project_name": "project1",
+      "client": "client1",
+      "desc": "desc1",
+      "id": 2
+    },
+    {
+      "project_name": "project3",
+      "client": "client3",
+      "desc": "my third project",
+      "id": 3
+    }
+  ]
+}
