@@ -45,7 +45,7 @@ const Editform = () => {
 
   const getData = async () => {
     console.log(form);
-    const res = await axios(`http://localhost:8080/teammember/${id}`, {
+    const res = await axios.get(`http://localhost:8080/teammember/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -60,7 +60,7 @@ const Editform = () => {
   }
 
   const handlePatch = async () => {
-    await axios.put(`http://localhost:8080/edit/${id}`, form, {
+    await axios.patch(`http://localhost:8080/teammember/edit/${id}`, form, {
       headers: {
         Authorization: `Bearer ${token}`,
       }

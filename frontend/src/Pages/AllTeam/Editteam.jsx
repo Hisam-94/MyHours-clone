@@ -24,7 +24,7 @@ const Editteam = () => {
 
   const getData = async () => {
     console.log(form);
-    const res = await axios(`http://localhost:8080/client/${id}`, {
+    const res = await axios.get(`http://localhost:8080/team/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -35,7 +35,7 @@ const Editteam = () => {
 
   const handlePatch = async () => {
     console.log(form);
-    await axios.patch(`http://localhost:8080/client/${id}`, form, {
+    await axios.patch(`http://localhost:8080/team/edit/${id}`, form, {
       headers: {
         Authorization: `Bearer ${token}`,
       }

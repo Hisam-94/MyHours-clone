@@ -115,7 +115,7 @@ const Teamform = () => {
         const token = localStorage.getItem("psc_app_token");
         console.log(token);
         return axios
-            .post("http://localhost:8080/teamMember/create", member, {
+            .post("http://localhost:8080/teammember/create", member, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
