@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpIcon, ExternalLinkIcon, EditIcon } from "@chakra-ui/icons";
 import { Td } from '../Pricepage/style';
 import axios from "axios";
+import Sidebar from '../Application/Sidebar/Sidebar';
 
 const Teamuser = () => {
 
@@ -57,9 +58,9 @@ const Teamuser = () => {
     return (
         <>
             <Box display='flex'>
-                <Box w='20%' height='45rem' bg='green'>
-                    <h1>SIDEBAR</h1>
-                </Box>
+            <Box w='17%'height='45rem' >
+            <Sidebar/>
+        </Box>
                 <Box w='80%'>
                     <Box
                         w='100%'

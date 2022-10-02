@@ -67,6 +67,8 @@ import {
   H5,
 } from './style';
 import { Link } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
 const panel = {
   width: '93%',
@@ -77,7 +79,9 @@ const panel = {
 
 const Pricing = () => {
   return (
-    <Box w='100%'>
+    <Box>
+      <Navbar />
+      <Box w='100%'>
       <div
         style={{
           fontFamily: 'Avernirnextitpro, sans-serif',
@@ -321,6 +325,8 @@ const Pricing = () => {
         </Box>
       </div>
       <h2>Footer Component</h2>
+    </Box>
+    <Footer/>
     </Box>
   )
 }

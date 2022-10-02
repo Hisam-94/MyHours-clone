@@ -35,7 +35,7 @@ const Editteam = () => {
 
   const handlePatch = async () => {
     console.log(form);
-    await axios.put(`http://localhost:8080/editclient/${id}`, form, {
+    await axios.patch(`http://localhost:8080/client/${id}`, form, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
