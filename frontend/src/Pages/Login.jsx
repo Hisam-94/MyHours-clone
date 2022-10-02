@@ -2,6 +2,8 @@ import { useState } from "react";
 import a from "../Images/my_hour_logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+
 import {
   Flex,
   Heading,
@@ -26,6 +28,7 @@ const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -51,13 +54,14 @@ const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        toast("Login successful !");
+        alert("Login successful !");
         if (res.token) {
           localStorage.setItem("psc_app_token", res.token);
+          navigate("/")
         }
       })
       .catch((err) => {
-        toast("Login Failed !");
+        alert("wrong credential !");
         console.log(err);
       });
   };
@@ -81,6 +85,8 @@ const Login = () => {
           boxShadow="2xl"
           rounded="md"
           bg="white"
+          position="fixed"
+          top="150px"
           minW={{ base: "90%", md: "468px" }}
         >
           <form onSubmit={handleSubmit}>
@@ -89,7 +95,7 @@ const Login = () => {
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
-              height="65vh"
+              // height="65vh"
               width="100%"
             >
               <Center>

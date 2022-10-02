@@ -1,7 +1,8 @@
 import { useState } from "react";
 import a from "../Images/my_hour_logo.png";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import {
   Alert,
   AlertIcon,
@@ -33,6 +34,7 @@ const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [full_name, setName] = useState("");
@@ -59,12 +61,17 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        alert(res.message)
+        if(res.msg) {
+          alert(res.msg)
+          navigate("/login");
+        }
+        else{
+          alert("user name already exits!")
+        }
         console.log(res);
       })
       .catch((err) => {
-        if(err.message) alert("user name already exits!");
-        console.log(err)
+        console.log(err);
       });
   };
 
@@ -88,7 +95,7 @@ const SignUp = () => {
             p="1rem"
             backgroundColor="whiteAlpha.900"
             boxShadow="md"
-            height="105vh"
+            // height="105vh"
             width="100%"
           >
             <Image height="30px" mt="20px" width="150px" mb="15px" src={a} />
@@ -178,11 +185,7 @@ const SignUp = () => {
           </Stack>
         </form>
       </Box>
-      <ToastContainer 
-        position="top-center"
-      />
     </Stack>
-
   );
 };
 
