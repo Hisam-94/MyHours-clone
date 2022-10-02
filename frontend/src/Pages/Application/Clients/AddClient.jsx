@@ -30,7 +30,7 @@ const AddClient = () => {
     const token = localStorage.getItem("psc_app_token");
     console.log(token);
     return axios
-      .post("http://localhost:8080/client/create", client, {
+      .post("https://fierce-headland-49726.herokuapp.com/client/create", client, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

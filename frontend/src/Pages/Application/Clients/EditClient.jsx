@@ -31,7 +31,7 @@ const EditClient = () => {
 
   const getData = async () => {
     console.log(form);
-    const res = await axios.get(`http://localhost:8080/client/${id}`,{
+    const res = await axios.get(`https://fierce-headland-49726.herokuapp.com/client/${id}`,{
           headers: {
             Authorization: `Bearer ${token}`,
           }},);
@@ -40,7 +40,7 @@ const EditClient = () => {
 
   const handlePatch = async () => {
     console.log(form);
-    await axios.patch(`http://localhost:8080/client/edit/${id}`, form,{
+    await axios.patch(`https://fierce-headland-49726.herokuapp.com/client/edit/${id}`, form,{
         headers: {
           Authorization: `Bearer ${token}`,
         }
