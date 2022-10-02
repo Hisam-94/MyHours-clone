@@ -24,7 +24,7 @@ export const getProjectError = () => {
 export const getProject = (dispatch) => {
     const token = localStorage.getItem("psc_app_token");
     dispatch(getProjectRequest());
-    axios.get("http://localhost:8080/project", {
+    axios.get("https://fierce-headland-49726.herokuapp.com/project", {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -58,7 +58,7 @@ export const addProject = (payload) => (dispatch) => {
     const token = localStorage.getItem("psc_app_token");
     dispatch(addProjectRequest());
     return axios
-      .post(`http://localhost:8080/project/create`, payload, {
+      .post(`https://fierce-headland-49726.herokuapp.com/project/create`, payload, {
         
         // body: payload,
         headers: {
