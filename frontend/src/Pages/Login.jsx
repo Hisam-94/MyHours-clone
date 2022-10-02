@@ -13,6 +13,7 @@ import {
   chakra,
   Box,
   Link,
+  Text,
   // Avatar,
   Image,
   FormControl,
@@ -55,7 +56,7 @@ const Login = () => {
         alert("Login successful !");
         if (res.token) {
           localStorage.setItem("psc_app_token", res.token);
-          navigate("/")
+          navigate("/projects")
         }
       })
       .catch((err) => {
@@ -157,8 +158,9 @@ const Login = () => {
                 Sign in
               </Button>
               <Box>
-                <Link color="teal.500" href="#">
-                  New to My Hours? Sign Up
+                <Text>New to My Hours? </Text>
+                <Link color="teal.500" href="/signup">
+                  Sign Up
                 </Link>
               </Box>
             </Stack>
