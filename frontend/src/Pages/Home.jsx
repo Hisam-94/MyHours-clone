@@ -8,10 +8,13 @@ import ToolsForOrganizations from '../Components/Home/ToolsForOrganizations'
 import CustomerReviews from '../Components/Home/Customer Reviews/CustomerReviews'
 import ContactDetails from '../Components/Home/ContactDetails'
 import SuggestionBox from '../Components/Home/SuggestionBox'
+import Navbar from '../Components/Navbar/Navbar'
+import Footer from '../Components/Footer/Footer'
 
 const Home = () => {
   return (
     <div>
+      <Navbar/>
       <Description/>
       <BussinessRatings/>
       <CoordinateTeam/>
@@ -20,7 +23,8 @@ const Home = () => {
       <ToolsForOrganizations/>
       <CustomerReviews/>
       <ContactDetails/>
-      <SuggestionBox/>      
+      <SuggestionBox/> 
+      <Footer/>     
     </div>
   )
 }

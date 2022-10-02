@@ -20,10 +20,15 @@ import {
   BsQuestionCircle,
   BsStopwatch,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineBarChart } from "react-icons/ai";
 
 const Sidebar = () => {
+  const navigate = useNavigate()
+  const handleLogout = ()=>{
+    localStorage.setItem("psc_app_token","");
+    navigate("/")
+  }
   return (
     <Box bgColor="#f8f9fa" minWidth={"200px"} position="sticky" zIndex={99}>
       <Flex
@@ -139,7 +144,7 @@ const Sidebar = () => {
               }}
             >
               <Box style={{ marginLeft: "37px" }}>
-                <p style={{ cursor: "pointer" }}>Clients</p>
+                <Link to={"/clients"}><p style={{ cursor: "pointer" }}>Clients</p></Link>
                 <p style={{ cursor: "pointer" }}>Invoices</p>
                 <p style={{ cursor: "pointer" }}>Uninvoiced</p>
               </Box>
@@ -176,7 +181,7 @@ const Sidebar = () => {
             >
               <Box style={{ marginLeft: "37px" }}>
                 <p style={{ cursor: "pointer" }}>Team members</p>
-                <p style={{ cursor: "pointer" }}>Teams</p>
+                <Link to={"/allteam"}><p style={{ cursor: "pointer" }}>Teams</p></Link>
               </Box>
             </AccordionPanel>
           </AccordionItem>
@@ -219,7 +224,7 @@ const Sidebar = () => {
             <p>What's new</p>
           </Box>
           <Link to="/">
-            <Box className={styled.icon}>
+            <Box className={styled.icon} onClick={handleLogout}>
               <BsPerson
                 style={{
                   width: "15px",
