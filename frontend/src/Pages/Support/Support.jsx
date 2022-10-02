@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "./Support.module.css";
 import {Box} from "@chakra-ui/react";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
 const Support = () => {
   return (
     <>
+    <Navbar/>
       <Box className={styled.container}>
       
         <div className={styled.supportmaindiv}>
@@ -87,6 +90,7 @@ const Support = () => {
         </div>
        
       </Box>
+      <Footer/>
     </>
   );
 };

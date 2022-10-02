@@ -15,7 +15,7 @@ clientController.get("/", async (req, res) => {
 
 clientController.get("/:id", async (req, res) => {
   const {id} = req.params
-  const client = await clientModel.find({
+  const client = await clientModel.findOne({
     userId: req.body.userId,
     _id:id
   });
