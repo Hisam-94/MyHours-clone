@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, ButtonGroup, Heading, Input, Spacer, Table, TableContainer, Tbody, Text, Th, Thead, Tr } from '@chakra-ui/react'
+import { Box, Button, Heading, Input, Spacer, Table, TableContainer, Tbody,  Th, Thead, Tr } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
 import { ArrowUpIcon, ExternalLinkIcon, EditIcon } from "@chakra-ui/icons";
 import { Td } from '../Pricepage/style';
@@ -77,7 +77,7 @@ const Teamuser = () => {
                             </Box>
                         </Box>
                         <Spacer />
-                        <Button><Link to="/teamform">➕ New Team Member</Link></Button>
+                        <Button><Link to="/addmember">➕ New Team Member</Link></Button>
                     </Box>
 
                     <Box>

@@ -5,6 +5,7 @@ import { addProject } from "../../Redux/Projects/action";
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react";
 import Sidebar from "../Application/Sidebar/Sidebar"
+import { useNavigate } from "react-router-dom";
 
 const Addallproject = () => {
 
@@ -15,15 +16,18 @@ const Addallproject = () => {
     const [name, setName] = useState("");
     const [client, setClient] = useState("");
     const [desc, setDesc] = useState("");
+    const navigate = useNavigate()
 
     const handleSubmit = () => {
         if(name || client || desc){
             const payload = {
                 project_name: name,
                 client: client,
-                desc: desc
+                desc: desc,
+                date: new Date().toDateString()
             }
             dispatch(addProject(payload));
+            navigate("/project-users")
             setName("");
             setClient("");
             setDesc("");

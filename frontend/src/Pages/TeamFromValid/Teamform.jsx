@@ -1,3 +1,72 @@
+
+            //               (
+            //                 <Field
+            //                 name="role" component={AdaptedRadioGroup} label="Role :" >
+            //                 <Stack>
+            //                     <Radio value="admin" color="red">
+            //                         <Stack
+            //                             direction="row"
+            //                             gap={10}
+            //                             h="70"
+            //   `                          border="1px solid lightGray"
+            //                             rounded="5"
+            //                         >
+
+            //                             <Flex direction="column">
+            //                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
+            //                                     Admin
+            //                                 </Box>
+            //                                 <Box pl="10" color="gray">
+            //                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and edit anything in group or workspace.</Text>
+            //                                 </Box>
+            //                             </Flex>
+            //                         </Stack>
+
+            //                     </Radio>
+            //                     <Radio value="manager" color="green">
+            //                         <Stack
+            //                             direction="row"
+            //                             gap={10}
+            //                             h="70"
+            //                             border="1px solid lightGray"
+            //                             rounded="5"
+            //                         >
+
+            //                             <Flex direction="column">
+            //                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
+            //                                     Manager
+            //                                 </Box>
+            //                                 <Box pl="10" color="gray">
+            //                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and manage assigned projects. Cannot view other projects.</Text>
+            //                                 </Box>
+            //                             </Flex>
+            //                         </Stack>
+            //                     </Radio>
+            //                     <Radio value="normal" color="blue">
+            //                         <Stack
+            //                             direction="row"
+            //                             gap={10}
+            //                             h="70"
+            //                             border="1px solid lightGray"
+            //                             rounded="5"
+            //                         >
+
+            //                             <Flex direction="column">
+            //                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
+            //                                     Normal
+            //                                 </Box>
+            //                                 <Box pl="10" color="gray">
+            //                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} > Can only track time on assigned projects/tasks.</Text>
+            //                                 </Box>
+            //                             </Flex>
+            //                         </Stack>
+            //                     </Radio>
+            //                 </Stack>
+
+            //             </Field>
+            //               )
+
+
 import React, { useState } from 'react'
 import {
     AccordionPanel,
@@ -8,400 +77,213 @@ import {
     InputGroup,
     InputLeftAddon,
     Box,
-    Text,
     Button,
-    ButtonGroup,
     FormControl,
     FormLabel,
-    FormErrorMessage,
     Input,
-    Checkbox,
-    Progress,
     Heading,
-    Radio,
-    RadioGroup,
-    Stack,
     Textarea,
     // Tooltip,
-    Flex
+    Flex,
 } from '@chakra-ui/react';
 
-import CSSReset from "@chakra-ui/css-reset";
-import { Form, Field, useField, useForm } from "react-final-form";
-import validate from "./validate";
+// import { Form, Field, useField, useForm } from "react-final-form";
 
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { QuestionOutlineIcon } from '@chakra-ui/icons';
+import Sidebar from '../Application/Sidebar/Sidebar';
 
 const Teamform = () => {
-    
-    // agree: true
-    // billlingRate: "655"
-    // email: "shelketushar100@gmail.com"
-    // laborRate: "456"
-    // name: "a"
-    // notes: "ds"
-    // role: "normal"
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const navigate = useNavigate();
+    const [member, SetMember] = useState({});
 
-    // ! ON-SUBMIT :
-    const onSubmit = async (values) => {
+    const handleChange = (e) => {
+        SetMember({
+            ...member,
+            [e.target.name]: e.target.value,
+        });
+    };
+    console.log("member",member);    
 
-
-        
-
-
-
-        await sleep(300);
-        // console.log("ANS", values);
-
-        const token = localStorage.getItem("psc_app_token")
-        console.log("TOKEN", token)
-
-        const name = values.name;
-        const email = values.email;
-        const note = values.notes;
-        const role = values.role;
-        const laborRate = values.laborRate;
-        const billableRate = values.billlingRate;
-        const agree = values.agree;
-
-        const payload = {
-            name , email , note , role , laborRate , billableRate , agree
-        }
-        console.log("ANS2" ,payload);
-
-       
-            fetch("http://localhost:8080/teammember/create",{
-            method : "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization' : `Bearer ${token}`
-
-              },
-            body : JSON.stringify(payload)
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            console.log(res);
-            alert("Team Member Created")
-        })
-        .catch((err) => console.log(err))
-
-
-        // window.alert(JSON.stringify(values, 0, 2));
+    const postData = (member) => {
+        const token = localStorage.getItem("psc_app_token");
+        console.log(token);
+        return axios
+            .post("http://localhost:8080/teamMember/create", member, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((r) => {
+                console.log(r.data);
+                alert("Member added successfully");
+            })
+            .catch((err) => console.log("err", err));
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(member);
+        postData(member);
+        navigate("/teams");
     };
     return (
-        <>
-            <Box display='flex'>
-                <Box w='20%' bg='green'>
-                    <h1>SIDEBAR</h1>
-                </Box>
-
-
-                <CSSReset />
-
-                <Box
-                    w={'80%'} pl={'5%'} pr={'15%'} m="20px auto">
-                    <Heading as="h1" m={4} size="xl" textAlign="left">
-                        Add Team Member
-                    </Heading>
-
-                    <Form
-                        onSubmit={onSubmit}
-                        validate={validate}
-                        render={({
-                            handleSubmit,
-                            form,
-                            errors,
-                            submitting,
-                            pristine,
-                            values
-                        }) => (
-                            <Box
-                                as="form"
-                                p={4}
-                                borderWidth="1px"
-                                borderRadius="lg"
-                                boxShadow="1px 1px 3px rgba(0,0,0,0.3)"
-                                onSubmit={handleSubmit}
-                            >
-
-
-                                <InputControl name="name" type="text" label="NAME :" placeholder="Enter name here"  />
-
-                                <InputControl name="email" type="email" label="Email :" placeholder="Enter email here" />
-
-                                <TextareaControl name="notes" label="NOTES (PRIVATE TO ADMINS) :" placeholder="Add notes..." />
-
-
-
-                                <Field
-                                    name="role"
-                                    component={AdaptedRadioGroup}
-                                    label="Role :"
-                                >
-                                    <Stack>
-                                        <Radio value="admin" color="red">
-                                            <Stack
-                                                direction="row"
-                                                gap={10}
-                                                h="70"
-                                                border="1px solid lightGray"
-                                                rounded="5"
-                                            >
-
-                                                <Flex direction="column">
-                                                    <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
-                                                        Admin
-                                                    </Box>
-                                                    <Box pl="10" color="gray">
-                                                        <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and edit anything in group or workspace.</Text>
-                                                    </Box>
-                                                </Flex>
-                                            </Stack>
-
-                                        </Radio>
-                                        <Radio value="manager" color="green">
-                                            <Stack
-                                                direction="row"
-                                                gap={10}
-                                                h="70"
-                                                border="1px solid lightGray"
-                                                rounded="5"
-                                            >
-
-                                                <Flex direction="column">
-                                                    <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
-                                                        Manager
-                                                    </Box>
-                                                    <Box pl="10" color="gray">
-                                                        <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and manage assigned projects. Cannot view other projects.</Text>
-                                                    </Box>
-                                                </Flex>
-                                            </Stack>
-                                        </Radio>
-                                        <Radio value="normal" color="blue">
-                                            <Stack
-                                                direction="row"
-                                                gap={10}
-                                                h="70"
-                                                border="1px solid lightGray"
-                                                rounded="5"
-                                            >
-
-                                                <Flex direction="column">
-                                                    <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
-                                                        Normal
-                                                    </Box>
-                                                    <Box pl="10" color="gray">
-                                                        <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} > Can only track time on assigned projects/tasks.</Text>
-                                                    </Box>
-                                                </Flex>
-                                            </Stack>
-                                        </Radio>
-                                    </Stack>
-
-                                </Field>
-
-                                <CheckboxControl textAlign='center' name="agree">Automatically add this member to all new projects </CheckboxControl>
-
-                                <hr />
-
-                                <Accordion allowMultiple mt="30">
-                                    <AccordionItem>
-                                        <h2>
-                                            <AccordionButton>
-                                                <Box
-                                                    flex="1"
-                                                    textAlign="left"
-                                                    fontWeight="500"
-                                                    color="gray.500"
-                                                    fontSize="xl"
-                                                >
-                                                    Labour Rate
-                                                    <AccordionIcon />
-                                                </Box>
-                                            </AccordionButton>
-                                        </h2>
-                                        <AccordionPanel pb={4}>
-                                            Enter default hourly rate for the team member to calculate Labor
-                                            cost. This rate can be further specified on individual projects.
-
-                                            <InputGroup mt="5">
-                                                <InputLeftAddon h="10" mt='6' children="INR" />
-                                                <InputControl
-                                                    size="sm"
-                                                    type="number"
-                                                    placeholder="Enter laber rate here"
-                                                    name="laborRate"
-                                                />
-                                            </InputGroup>
-                                        </AccordionPanel>
-
-
-                                    </AccordionItem>
-
-                                    <AccordionItem>
-                                        <h2>
-                                            <AccordionButton>
-                                                <Box
-                                                    flex="1"
-                                                    textAlign="left"
-                                                    fontWeight="500"
-                                                    color="gray.500"
-                                                    fontSize="xl"
-                                                >
-                                                    Billable Rate
-                                                    <AccordionIcon />
-                                                </Box>
-                                            </AccordionButton>
-                                        </h2>
-                                        <AccordionPanel pb={4}>
-                                            Enter default billable rate for the team member to calculate
-                                            Billable cost. This rate can be further specified on individual
-                                            projects.
-                                            <InputGroup mt="5">
-                                                <InputLeftAddon h="10" mt='6' children="INR" />
-                                                <InputControl
-                                                    size="sm"
-                                                    type="number"
-                                                    placeholder="Enter billing rate here"
-                                                    name="billlingRate"
-                                                />
-                                            </InputGroup>
-                                        </AccordionPanel>
-                                    </AccordionItem>
-                                </Accordion>
-
-                                <PercentComplete size="sm" my={4} hasStripe isAnimated />
-
-
-
-                                <ButtonGroup spacing={4}>
-                                    <Button
-                                        isLoading={submitting}
-                                        loadingText="Submitting"
-                                        variantColor="teal"
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </Button>
-                                    <Button
-                                        variantColor="teal"
-                                        variant="outline"
-                                        onClick={form.reset}
-                                        isDisabled={submitting || pristine}
-                                    >
-                                        Reset
-                                    </Button>
-                                </ButtonGroup>
-
-
-                                {/* <Box as="pre" my={10}>
-                               New Team member data = {JSON.stringify(values, 0, 2)}
-                            </Box> */}
-
-                            </Box>
-                        )}
-                    />
-
-                </Box>
-
+        <Flex>
+            <Box w="17%">
+                <Sidebar />
             </Box>
-        </>
+            <Box w="40%" m="auto" textAlign={"start"} mt="3rem">
+                <Heading fontWeight={"semibold"}>
+                    Add Team member{" "}
+                    <QuestionOutlineIcon style={{ width: "16px", color: "#3b8fc2" }} />
+                </Heading>
+                <FormControl onSubmit={handleSubmit} style={{ width: "100%" }}>
 
+                    <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+                        NAME
+                    </FormLabel>
+                    <Input
+                        onChange={handleChange}
+                        w="100%"
+                        variant="outline"
+                        name="name"
+                    ></Input>
+
+                    <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+                        EMAIL
+                    </FormLabel>
+                    <Input
+                        onChange={handleChange}
+                        type="email"
+                        w="100%"
+                        variant="outline"
+                        name="email"
+                    ></Input>
+
+                    <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+                        NOTE
+                    </FormLabel>
+                    <Textarea
+                        onChange={handleChange}
+                        size="lg"
+                        h="4rem"
+                        w="100%"
+                        name="note"
+                    ></Textarea>
+
+
+                    <Accordion defaultIndex={[0]} allowMultiple mt="30">
+                        <AccordionItem>
+                            <h2>
+                                <AccordionButton>
+                                    <Box
+                                        flex="1"
+                                        textAlign="left"
+                                        fontWeight="500"
+                                        color="gray.500"
+                                        fontSize="xl"
+                                    >
+                                        Labour Rate
+                                        <AccordionIcon />
+                                    </Box>
+                                </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                                Enter default hourly rate for the team member to calculate Labor
+                                cost. This rate can be further specified on individual projects.
+
+                                <InputGroup mt="5">
+                                    <InputLeftAddon h="9" mt='0' children="INR" />
+                                    <Input
+                                        onChange={handleChange}
+                                        w="100%"
+                                        variant="outline"
+                                        size="2xl"
+                                        type="number"
+                                        placeholder="   Enter laber rate here"
+                                        name="laborRate"
+                                    />
+                                </InputGroup>
+                            </AccordionPanel>
+
+
+                        </AccordionItem>
+
+                        <AccordionItem>
+                            <h2>
+                                <AccordionButton>
+                                    <Box
+                                        flex="1"
+                                        textAlign="left"
+                                        fontWeight="500"
+                                        color="gray.500"
+                                        fontSize="xl"
+                                    >
+                                        Billable Rate
+                                        <AccordionIcon />
+                                    </Box>
+                                </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                                Enter default billable rate for the team member to calculate
+                                Billable cost. This rate can be further specified on individual
+                                projects.
+
+                                <InputGroup mt="5">
+                                    <InputLeftAddon h="9" mt='0' children="INR" />
+                                    <Input
+                                        onChange={handleChange}
+                                        w="100%"
+                                        variant="outline"
+                                        size="2xl"
+                                        type="number"
+                                        placeholder="Enter billing rate here"
+                                        name="billableRate"
+                                    />
+                                </InputGroup>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+
+
+
+                    <Button
+                        fontSize={"lg"}
+                        fontWeight={400}
+                        href={"#"}
+                        _hover={{
+                            bg: "blue.800",
+                        }}
+                        bg={"blue.400"}
+                        color={"white"}
+                        align="center"
+                        mb={"3px"}
+                        mr={"1rem"}
+                        mt={"1rem"}
+                        onClick={handleSubmit}
+                    >
+                        Save
+                    </Button>
+                    <Button
+                        fontSize={"lg"}
+                        fontWeight={400}
+                        href={"#"}
+                        _hover={{
+                            bg: "blue.100",
+                        }}
+                        bg={"blue.50"}
+                        color={"blue.800"}
+                        align="center"
+                        mb={"3px"}
+                        mt={"1rem"}
+                        onClick={() => navigate("/clients")}
+                    >
+                        Cancel
+                    </Button>
+                </FormControl>
+            </Box>
+        </Flex >
     )
-
 }
-
-
-const AdaptedTextarea = ({ input, meta, ...rest }) => (
-    <Textarea {...input} {...rest} isInvalid={meta.error && meta.touched} />
-);
-
-const CheckboxControl = ({ name, value, children }) => {
-    const {
-        input: { checked, ...input },
-        meta: { error, touched, invalid }
-    } = useField(name, {
-        type: "checkbox" // important for RFF to manage the checked prop
-    });
-    return (
-        <FormControl isInvalid={touched && invalid} my={4}>
-            <Checkbox {...input} isInvalid={touched && invalid} my={4}>
-                {children}
-            </Checkbox>
-            <FormErrorMessage>{error}</FormErrorMessage>
-        </FormControl>
-    );
-};
-
-
-const AdaptedRadioGroup = ({ input, meta, label, children }) => (
-    <FormControl isInvalid={meta.touched && meta.invalid} my={4}>
-        <FormLabel htmlFor={input.name}>{label}</FormLabel>
-        <RadioGroup {...input}>{children}</RadioGroup>
-        <FormErrorMessage>{meta.error}</FormErrorMessage>
-        <h1>{console.log("Input", input, "Meta", meta, "Children", children)}</h1>
-    </FormControl>
-);
-
-const Control = ({ name, ...rest }) => {
-    const {
-        meta: { error, touched }
-    } = useField(name, { subscription: { touched: true, error: true } });
-    return <FormControl {...rest} isInvalid={error && touched} />;
-};
-
-const Error = ({ name }) => {
-    const {
-        meta: { error }
-    } = useField(name, { subscription: { error: true } });
-    return <FormErrorMessage>{error}</FormErrorMessage>;
-};
-
-const InputControl = ({ name, label, placeholder, type }) => {
-    const { input, meta } = useField(name);
-    return (
-        <Control name={name} my={4}>
-            <FormLabel htmlFor={name}>{label}</FormLabel>
-            <Input
-                {...input}
-                isInvalid={meta.error && meta.touched}
-                id={name}
-                type={type}
-                placeholder={placeholder}
-            />
-            <Error name={name} />
-        </Control>
-    );
-};
-
-const TextareaControl = ({ name, label, placeholder }) => (
-    <Control name={name} my={4}>
-        <FormLabel htmlFor={name}>{label}</FormLabel>
-        <Field
-            name={name}
-
-            component={AdaptedTextarea}
-            placeholder={placeholder}
-            id={name}
-        />
-        <Error name={name} />
-    </Control>
-);
-
-const PercentComplete = (props) => {
-    const form = useForm();
-    const numFields = form.getRegisteredFields().length;
-    const numErrors = Object.keys(form.getState().errors).length;
-    return (
-        <Progress
-            value={numFields === 0 ? 0 : ((numFields - numErrors) / numFields) * 100}
-            {...props}
-        />
-    );
-};
-
 
 export default Teamform

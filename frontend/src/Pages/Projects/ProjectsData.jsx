@@ -11,7 +11,7 @@ export const ProjectsData = ({ project }) => {
                     <Td>{item.client}</Td>
                     <Td> 0 H </Td>
                     <Td>₹0.00</Td>
-                    <Td>01-10-2022</Td>
+                    <Td>{item.date}</Td>
                     <Td>Active</Td>
                 </Tr>
             )
