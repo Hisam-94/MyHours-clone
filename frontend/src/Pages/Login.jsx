@@ -1,7 +1,5 @@
 import { useState } from "react";
 import a from "../Images/my_hour_logo.png";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -167,7 +165,6 @@ const Login = () => {
           </form>
         </Box>
       </Stack>
-      <ToastContainer position="top-center" />
     </Flex>
   );
 };
