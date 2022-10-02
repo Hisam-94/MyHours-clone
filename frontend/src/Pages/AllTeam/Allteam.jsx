@@ -13,7 +13,7 @@ const Allteam = () => {
     const getData = () => {
       try {
         return axios
-          .get(`http://localhost:8080/team`, {
+          .get(`https://fierce-headland-49726.herokuapp.com/team`, {
             headers: {
               Authorization: `Bearer ${token}`,
             }
@@ -29,7 +29,7 @@ const Allteam = () => {
 
     const handleDelete = (id) => {
         axios
-          .delete(`http://localhost:8080/team/delete/${id}`, {
+          .delete(`https://fierce-headland-49726.herokuapp.com/team/delete/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             }

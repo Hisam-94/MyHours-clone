@@ -27,7 +27,7 @@ const Teamuser = () => {
     console.log(token)
 
     const getData = () => {
-        fetch("http://localhost:8080/teammember", {
+        fetch("https://fierce-headland-49726.herokuapp.com/teammember", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -45,7 +45,7 @@ const Teamuser = () => {
     
     const handleDelete = (id) => {
         axios
-          .delete(`http://localhost:8080/teammember/delete/${id}`, {
+          .delete(`https://fierce-headland-49726.herokuapp.com/teammember/delete/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             }

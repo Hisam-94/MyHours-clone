@@ -19,7 +19,7 @@ const Addteam = () => {
     const token = localStorage.getItem("psc_app_token");
     console.log(token);
     return axios
-      .post("http://localhost:8080/team/create", team, {
+      .post("https://fierce-headland-49726.herokuapp.com/team/create", team, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

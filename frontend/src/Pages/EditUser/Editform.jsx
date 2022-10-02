@@ -46,7 +46,7 @@ const Editform = () => {
 
   const getData = async () => {
     console.log("FORM" ,form);
-    const res = await axios.get(`http://localhost:8080/teammember/${id}`, {
+    const res = await axios.get(`https://fierce-headland-49726.herokuapp.com/teammember/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -61,7 +61,7 @@ const Editform = () => {
   }
 
   const handlePatch = async () => {
-    await axios.patch(`http://localhost:8080/teammember/edit/${id}`, form, {
+    await axios.patch(`https://fierce-headland-49726.herokuapp.com/teammember/edit/${id}`, form, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
