@@ -12,7 +12,7 @@ export const ProjectsData = ({ project }) => {
                     <Td>{item.client}</Td>
                     <Td> 0 H </Td>
                     <Td>₹0.00</Td>
-                    <Td>{item.date}</Td>
+                    <Td>10/2/2022</Td>
                     <Td>Active</Td>
                 </Tr>
             )

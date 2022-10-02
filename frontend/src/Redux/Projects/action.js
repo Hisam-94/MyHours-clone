@@ -66,7 +66,7 @@ export const addProject = (payload) => (dispatch) => {
           }, 
       })
       .then((res) => dispatch(addProjectSuccess(res.data)))
-    //   .then(() => dispatch(getProject))
+      .then(() => dispatch(getProject))
       .catch((err) => dispatch(addProjectError(err)));
   };
 
