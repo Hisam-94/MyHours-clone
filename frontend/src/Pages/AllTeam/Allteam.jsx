@@ -109,8 +109,8 @@ const Allteam = () => {
                                 <Tr key={index}>
                                     <Td fontSize="14">{el.name}</Td>
                                     <Td fontSize="14">{el.teamsize}</Td>
-                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/editteam/${el._id}`}>Edit </Link><EditIcon mb="1" /></Td>
-                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}>{index} Delete</Td>
+                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/editteam/${el._id}`}> Edit </Link><EditIcon mb="1" /></Td>
+                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }} onClick={() => handleDelete(el._id)} >Delete</Td>
                                 </Tr>
                             ))}
                         </Tbody>

@@ -16,7 +16,8 @@ import {
   InputGroup,
   InputLeftAddon,
   Checkbox,
-  Button
+  Button,
+  Select
 } from "@chakra-ui/react";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import axios from "axios";
@@ -26,11 +27,11 @@ import Sidebar from "../Application/Sidebar/Sidebar";
 const Editform = () => {
 
   const [form, setForm] = useState({});
-  console.log('form1:', form);
+  // console.log('form1:', form);
   const params = useParams();
   
   const id = params.id;
-  console.log("params", id)
+  // console.log("params", id)
 
   const navigate = useNavigate();
   const token = localStorage.getItem("psc_app_token");
@@ -41,17 +42,18 @@ const Editform = () => {
       ...form,
       [name]: value,
     });
+    // console.log("ANS",value);
   };
 
   const getData = async () => {
-    console.log(form);
+    console.log("FORM" ,form);
     const res = await axios.get(`http://localhost:8080/teammember/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
     },);
     setForm(res.data);
-    console.log(res.data);
+    // console.log(res.data);
   };
 
   const handleSubmit = (e) => {
@@ -94,14 +96,14 @@ const Editform = () => {
              w="100%"
              variant="outline"
              name="name"
-             value={form.name}
+             value={form.name || ''}
           ></Input>
 
           <FormLabel
             fontSize="12px"
             mt="1rem"
             color="gray.600"
-            value={form.email}
+            value={form.email  || ''}
           >
             EMAIL
           </FormLabel>
@@ -111,7 +113,7 @@ const Editform = () => {
             w="100%"
             variant="outline"
             name="email"
-            value={form.email}
+            value={form.email || ''}
           ></Input>
 
            <FormLabel fontSize="12px" mt="1rem" color="gray.600">
@@ -123,14 +125,14 @@ const Editform = () => {
             h="4rem"
             w="100%"
             name="note"
-            value={form.note}
+            value={form.note || ''}
           ></Textarea>
 
 
           <FormLabel color="gray" mt="19" fontSize="13">
             ROLE
           </FormLabel>
-          <RadioGroup textAlign={'start'} value={form.role} name='role' >
+          <RadioGroup textAlign={'start'} value={form.role || ''} name='role' >
             
               <Stack    
                 direction="row"
@@ -139,7 +141,7 @@ const Editform = () => {
                 border="1px solid lightGray"
                 rounded="5"
               >
-                <Radio isDisabled value="Admin"  pl="10" size="md" name="role" onChange={handleChange}>
+                {/* <Radio isDisabled value="Admin"  pl="10" size="md" name="role" onChange={handleChange}>
                   <Flex direction="column">
                     <Box pl="10" fontWeight="500" color="gray.600">
                       Account owner
@@ -148,7 +150,14 @@ const Editform = () => {
                       <h5 color="gray.600">Can not change the role.</h5>
                     </Box>
                   </Flex>
-                </Radio>
+                </Radio> */}
+
+                    <Select name='role' defaultValue={form.role || ''}  onChange={handleChange}>
+                        <option  value="admin">Admin</option>
+                        <option  value="manager">Manager</option>
+                        <option  value="normal">Normal</option>
+                    </Select>
+
               </Stack>
             
           </RadioGroup>
@@ -174,7 +183,7 @@ const Editform = () => {
                 cost. This rate can be further specified on individual projects.
                 <InputGroup mt="5">
                   <InputLeftAddon h="8" children="INR" />
-                  <Input size="sm" type="tel" placeholder="0" name="laborRate" onChange={handleChange} value={form.laborRate} />
+                  <Input size="sm" type="tel" placeholder="0" name="laborRate" onChange={handleChange} value={form.laborRate || ''} />
                 </InputGroup>
               </AccordionPanel>
             </AccordionItem>
@@ -198,7 +207,7 @@ const Editform = () => {
                 Enter default billable rate for the team form to calculate Billable cost. This rate can be further specified on individual projects.
                 <InputGroup mt="5">
                   <InputLeftAddon h="8" children="INR" />
-                  <Input size="sm" type="tel" placeholder="0" name="billableRate" onChange={handleChange} value={form.billableRate} />
+                  <Input size="sm" type="tel" placeholder="0" name="billableRate" onChange={handleChange} value={form.billableRate || ''} />
                 </InputGroup>
               </AccordionPanel>
             </AccordionItem>
@@ -206,7 +215,8 @@ const Editform = () => {
 
           <Checkbox mt="25">Automatically add this team member to all new projects</Checkbox>
 
-          <Button
+        <Box>
+        <Button
             fontSize={"lg"}
             fontWeight={400}
             href={"#"}
@@ -238,8 +248,10 @@ const Editform = () => {
             onClick={() => navigate("/teams")}
           >
             Cancel
-          </Button>
+          </Button> 
+        </Box>
         </FormControl>
+          
       </Box>
     </Flex >
   );

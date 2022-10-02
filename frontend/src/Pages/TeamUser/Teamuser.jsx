@@ -38,6 +38,23 @@ const Teamuser = () => {
             })
             .catch((err) => console.log("err", err))
     }
+
+
+    
+    const handleDelete = (id) => {
+        axios
+          .delete(`http://localhost:8080/teammember/delete/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            }
+          })
+          .then(() => {
+            getData();
+          })
+          .catch((err) => console.error(err));
+      };
+
+
     useEffect(() => {
         getData()
     }, [])
@@ -107,6 +124,7 @@ const Teamuser = () => {
                                             <Td fontSize="14">{el.role}</Td>
                                             <Td fontSize="14">Active</Td>
                                             <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/edit/${el._id}`}>Edit </Link><EditIcon mb="1" /></Td>
+                                            <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }} onClick={() => handleDelete(el._id)}> Delete <EditIcon mb="1" /></Td>
                                         </Tr>
                                     ))}
                                 </Tbody>
