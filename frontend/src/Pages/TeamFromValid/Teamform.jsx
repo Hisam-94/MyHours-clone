@@ -85,6 +85,7 @@ import {
     Textarea,
     // Tooltip,
     Flex,
+    Select,
 } from '@chakra-ui/react';
 
 // import { Form, Field, useField, useForm } from "react-final-form";
@@ -99,10 +100,14 @@ const Teamform = () => {
     const [member, SetMember] = useState({});
 
     const handleChange = (e) => {
-        SetMember({
-            ...member,
-            [e.target.name]: e.target.value,
-        });
+        
+            SetMember({
+                ...member,
+                [e.target.name]: e.target.value, 
+                
+            });
+        
+        console.log("ANS",e.target.value);
     };
     console.log("member",member);    
 
@@ -171,6 +176,11 @@ const Teamform = () => {
                         name="note"
                     ></Textarea>
 
+                    <Select name='role'  onChange={handleChange}>
+                        <option  value="admin">Admin</option>
+                        <option  value="manager">Manager</option>
+                        <option  value="normal">Normal</option>
+                    </Select>
 
                     <Accordion defaultIndex={[0]} allowMultiple mt="30">
                         <AccordionItem>
