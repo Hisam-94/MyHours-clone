@@ -38,17 +38,17 @@ const EditClient = () => {
             Authorization: `Bearer ${token}`,
           }},);
     setForm(res.data);
-    console.log(res.data);
+    console.log("From edit",res.data);
   };
 
   const handlePatch = async () => {
     console.log(form);
-    await axios.put(`http://localhost:8080/editclient/${id}`, form,{
+    await axios.patch(`http://localhost:8080/client/edit/${id}`, form,{
         headers: {
           Authorization: `Bearer ${token}`,
         }
       });
-    navigate("/Clients");
+    navigate("/clients");
   };
 
   const handleSubmit = (e) => {
@@ -88,7 +88,7 @@ const EditClient = () => {
             fontSize="12px"
             mt="1rem"
             color="gray.600"
-            value={form.contactperson}
+            value={form.contact_person}
           >
             CONTACT PERSON
           </FormLabel>
@@ -98,7 +98,7 @@ const EditClient = () => {
             w="100%"
             variant="outline"
             name="contactperson"
-            value={form.contactperson}
+            value={form.contact_person}
           ></Input>
           <FormLabel
             fontSize="12px"
@@ -149,7 +149,7 @@ const EditClient = () => {
               </FormLabel>
               <Input
                 onChange={handleChange}
-                value={form.taxname}
+                value={form.tax_name}
                 w="100%"
                 variant="outline"
                 name="taxName"
@@ -162,7 +162,7 @@ const EditClient = () => {
               <Input
                 type="number"
                 onChange={handleChange}
-                value={form.taxparcentage}
+                value={form.tax_parcentage}
                 w="100%"
                 variant="outline"
                 name="taxparcentage"
@@ -175,7 +175,7 @@ const EditClient = () => {
           <Input
             onChange={handleChange}
             w="100%"
-            value={form.taxnumber}
+            value={form.tax_number}
             variant="outline"
             name="taxNumber"
           ></Input>

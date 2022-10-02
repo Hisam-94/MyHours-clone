@@ -44,7 +44,7 @@ const Sidebar = () => {
         />
       </Flex>
       <Box>
-        <Link to="/track">
+        <Link to="#">
           <Box className={styled.icon}>
             <BsStopwatch
               style={{

@@ -68,7 +68,7 @@ const Clients = () => {
   };
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/client/${id}`, {
+      .delete(`http://localhost:8080/client/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
