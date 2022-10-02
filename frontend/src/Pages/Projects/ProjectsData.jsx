@@ -7,8 +7,8 @@ export const ProjectsData = ({ project }) => {
     <>
         {project.map((item) => {
             return (
-                <Tr key={item.id}>
-                    <Td>{item.project_name}</Td>
+                <Tr key={item._id}>
+                    <Td>{item.name}</Td>
                     <Td>{item.client}</Td>
                     <Td> 0 H </Td>
                     <Td>₹0.00</Td>

@@ -1,18 +1,5 @@
 {
   "projects": [
-    {
-      "project_name": "my project",
-      "client": "Neil",
-      "desc": "",
-      "date": "Sun Oct 02 2022",
-      "id": 1
-    },
-    {
-      "project_name": "frontend project",
-      "client": "Liz O'Neill",
-      "desc": "",
-      "date": "Sun Oct 02 2022",
-      "id": 2
-    }
+    
   ]
 }

@@ -58,9 +58,9 @@ export const addProject = (payload) => (dispatch) => {
     const token = localStorage.getItem("psc_app_token");
     dispatch(addProjectRequest());
     return axios
-      .post(`http://localhost:8080/projects`, {
+      .post(`http://localhost:8080/project/create`, payload, {
         
-        body: payload,
+        // body: payload,
         headers: {
             Authorization: `Bearer ${token}`,
           }, 
