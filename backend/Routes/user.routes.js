@@ -30,7 +30,8 @@ userController.post("/signup" , (req, res) =>{
     }
     catch(err){
         console.log(err)
-        res.send("Something went wrong, plz try again")
+        res.status(500).json({"message":"Uesr already exists! please try another "})
+        // res.send("Something went wrong, plz try again")
     }
     })
 })

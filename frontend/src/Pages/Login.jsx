@@ -1,5 +1,7 @@
 import { useState } from "react";
 import a from "../Images/my_hour_logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   Flex,
   Heading,
@@ -31,14 +33,15 @@ const Login = () => {
 
   const handleShowClick = () => setShowPassword(!showPassword);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       email,
-      password
+      password,
     };
-    
-    fetch("http://localhost:8080/user/login", {
+    setEmail("");
+    setPassword("");
+    await fetch("http://localhost:8080/user/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,11 +51,15 @@ const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        if(res.token){
-          localStorage.setItem('psc_app_token', res.token);
+        toast("Login successful !");
+        if (res.token) {
+          localStorage.setItem("psc_app_token", res.token);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast("Login Failed !");
+        console.log(err);
+      });
   };
 
   return (
@@ -70,7 +77,12 @@ const Login = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Box boxShadow='2xl' rounded='md' bg='white' minW={{ base: "90%", md: "468px" }}>
+        <Box
+          boxShadow="2xl"
+          rounded="md"
+          bg="white"
+          minW={{ base: "90%", md: "468px" }}
+        >
           <form onSubmit={handleSubmit}>
             <Stack
               spacing={4}
@@ -98,7 +110,13 @@ const Login = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" onChange={(e)=>setEmail(e.target.value)} />
+                  <Input
+                    type="email"
+                    value={email}
+                    required="true"
+                    placeholder="email address"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -110,8 +128,10 @@ const Login = () => {
                   />
                   <Input
                     type={showPassword ? "text" : "password"}
+                    value={password}
                     placeholder="Password"
-                    onChange={(e)=>setPassword(e.target.value)}
+                    required="true"
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -129,19 +149,19 @@ const Login = () => {
                 variant="solid"
                 bgColor="#80b7d8"
                 width="full"
-                
               >
                 Sign in
               </Button>
               <Box>
                 <Link color="teal.500" href="#">
-                New to My Hours? Sign Up
+                  New to My Hours? Sign Up
                 </Link>
               </Box>
             </Stack>
           </form>
         </Box>
       </Stack>
+      <ToastContainer position="top-center" />
     </Flex>
   );
 };

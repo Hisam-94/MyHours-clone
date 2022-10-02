@@ -1,5 +1,13 @@
 import { useState } from "react";
 import a from "../Images/my_hour_logo.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import {
   Flex,
   Heading,
@@ -32,23 +40,32 @@ const SignUp = () => {
 
   const handleShowClick = () => setShowPassword(!showPassword);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       full_name,
       email,
       password,
     };
-    fetch("http://localhost:8080/user/signup",{
+    setName("");
+    setEmail("");
+    setPassword("");
+    await fetch("http://localhost:8080/user/signup", {
       method: "POST",
-      headers:{
-        'content-type': 'application/json',
+      headers: {
+        "content-type": "application/json",
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     })
-    .then((res)=>res.json())
-    .then((res)=>console.log(res))
-    .catch((err)=>console.log(err))
+      .then((res) => res.json())
+      .then((res) => {
+        alert(res.message)
+        console.log(res);
+      })
+      .catch((err) => {
+        if(err.message) alert("user name already exits!");
+        console.log(err)
+      });
   };
 
   return (
@@ -86,7 +103,12 @@ const SignUp = () => {
               So we know what to call you in the app
             </Text>
             <FormControl>
-              <Input type="text" onChange={(e)=>setName(e.target.value)}/>
+              <Input
+                type="text"
+                required="true"
+                value={full_name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </FormControl>
             <Text textAlign="left" as="b" fontSize="15px">
               EMAIL
@@ -100,7 +122,13 @@ const SignUp = () => {
                   pointerEvents="none"
                   children={<CFaUserAlt color="gray.300" />}
                 />
-                <Input type="email" placeholder="Email Address" onChange={(e)=>setEmail(e.target.value)}/>
+                <Input
+                  type="email"
+                  placeholder="Email Address"
+                  required="true"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </InputGroup>
             </FormControl>
             <Text textAlign="left" as="b" fontSize="15px">
@@ -116,6 +144,8 @@ const SignUp = () => {
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
+                  required="true"
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <InputRightElement width="4.5rem">
@@ -141,14 +171,18 @@ const SignUp = () => {
               <Text textAlign="left" fontSize="15px">
                 New to My Hours? By signing up you agree to the
               </Text>
-              <Link color="teal.500" href="#" as='u'>
+              <Link color="teal.500" href="#" as="u">
                 Terms of Use
               </Link>
             </Box>
           </Stack>
         </form>
       </Box>
+      <ToastContainer 
+        position="top-center"
+      />
     </Stack>
+
   );
 };
 
