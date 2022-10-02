@@ -180,7 +180,7 @@ const Sidebar = () => {
               }}
             >
               <Box style={{ marginLeft: "37px" }}>
-                <p style={{ cursor: "pointer" }}>Team members</p>
+                <Link to={"/teams"}><p style={{ cursor: "pointer" }}>Team members</p></Link>
                 <Link to={"/allteam"}><p style={{ cursor: "pointer" }}>Teams</p></Link>
               </Box>
             </AccordionPanel>
