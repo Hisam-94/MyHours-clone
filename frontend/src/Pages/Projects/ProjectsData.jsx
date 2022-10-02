@@ -2,6 +2,7 @@ import { Td, Tr } from '@chakra-ui/react'
 import React from 'react'
 
 export const ProjectsData = ({ project }) => {
+  console.log("project",project)
   return (
     <>
         {project.map((item) => {
