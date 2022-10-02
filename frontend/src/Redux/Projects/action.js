@@ -24,7 +24,7 @@ export const getProjectError = () => {
 export const getProject = (dispatch) => {
     const token = localStorage.getItem("psc_app_token");
     dispatch(getProjectRequest());
-    axios.get("http://localhost:8080/projects", {
+    axios.get("http://localhost:8080/project", {
         headers: {
           Authorization: `Bearer ${token}`,
         }

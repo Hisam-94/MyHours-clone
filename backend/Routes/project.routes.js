@@ -15,7 +15,7 @@ projectController.get("/", async (req, res) => {
 
 projectController.get("/:id", async (req, res) => {
   const {id} = req.params
-  const project = await projectModel.find({
+  const project = await projectModel.findOne({
     userId: req.body.userId,
     _id:id
   });

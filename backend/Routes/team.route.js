@@ -14,7 +14,7 @@ teamController.get("/", async (req, res) => {
 
   teamController.get("/:id", async (req, res) => {
     const {id} = req.params
-    const team = await teamModel.find({
+    const team = await teamModel.findOne({
       userId: req.body.userId,
       _id:id
     });
