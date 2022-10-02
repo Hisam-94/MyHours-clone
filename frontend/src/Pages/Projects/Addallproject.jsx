@@ -1,11 +1,31 @@
 import React, { useState } from "react";
 import style from "./AddProject.module.css";
-import { Box, Button, FormControl, FormLabel, H1, Heading, Input, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, FormControl, FormLabel, H1, Heading, Input, Select, Text, Textarea } from "@chakra-ui/react";
 import { addProject } from "../../Redux/Projects/action";
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react";
 import Sidebar from "../Application/Sidebar/Sidebar"
 import { useNavigate } from "react-router-dom";
+
+
+const option = [
+  {
+    id: 1,
+    client:"Abc"
+  },
+  {
+    id: 2,
+    client:"masai"
+  },
+  {
+    id: 3,
+    client:"project"
+  },
+  {
+    id: 4,
+    client:"xyz"
+  },
+]
 
 const Addallproject = () => {
 
@@ -27,7 +47,7 @@ const Addallproject = () => {
                 date: new Date().toDateString()
             }
             dispatch(addProject(payload));
-            navigate("/project-users")
+            navigate("/projects")
             setName("");
             setClient("");
             setDesc("");
@@ -70,10 +90,19 @@ const Addallproject = () => {
         <Box>
           <FormControl id="client">
             <FormLabel className={style.label}>CLIENT</FormLabel>
-            <Input type="text" value={client} onChange={(e) => setClient(e.target.value)} />
+            <Select type="text" value={client} onChange={(e) => setClient(e.target.value)} placeholder='Select' >
+            
+              <option value='Elizabeth Jones'>Elizabeth Jones</option>
+              <option value='Neil'>Neil</option>
+              <option value="Liz O'Neill">Liz O'Neill</option>
+              <option value='Prateek'>Prateek</option>
+           
+            </Select>
           </FormControl>
         </Box>
   <br />
+
+
         <Box>
         <FormControl id="client">
             <FormLabel className={style.label}>DESCRIPTION</FormLabel>
