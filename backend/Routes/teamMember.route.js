@@ -5,10 +5,19 @@ const { teamMemberModel } = require("../Models/teamMembers.module");
 const teamMemberController = Router();
 
 teamMemberController.get("/", async (req, res) => {
-  const { name } = req.query;
+ 
   const teamMember = await teamMemberModel.find({
     userId: req.body.userId,
-    name,
+  
+  });
+  res.send(teamMember);
+});
+
+teamMemberController.get("/:id", async (req, res) => {
+  const {id} = req.params
+  const teamMember = await teamMemberModel.find({
+    userId: req.body.userId,
+    _id:id
   });
   res.send(teamMember);
 });
