@@ -1,70 +1,70 @@
 
-            //               (
-            //                 <Field
-            //                 name="role" component={AdaptedRadioGroup} label="Role :" >
-            //                 <Stack>
-            //                     <Radio value="admin" color="red">
-            //                         <Stack
-            //                             direction="row"
-            //                             gap={10}
-            //                             h="70"
-            //   `                          border="1px solid lightGray"
-            //                             rounded="5"
-            //                         >
+//               (
+//                 <Field
+//                 name="role" component={AdaptedRadioGroup} label="Role :" >
+//                 <Stack>
+//                     <Radio value="admin" color="red">
+//                         <Stack
+//                             direction="row"
+//                             gap={10}
+//                             h="70"
+//   `                          border="1px solid lightGray"
+//                             rounded="5"
+//                         >
 
-            //                             <Flex direction="column">
-            //                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
-            //                                     Admin
-            //                                 </Box>
-            //                                 <Box pl="10" color="gray">
-            //                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and edit anything in group or workspace.</Text>
-            //                                 </Box>
-            //                             </Flex>
-            //                         </Stack>
+//                             <Flex direction="column">
+//                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
+//                                     Admin
+//                                 </Box>
+//                                 <Box pl="10" color="gray">
+//                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and edit anything in group or workspace.</Text>
+//                                 </Box>
+//                             </Flex>
+//                         </Stack>
 
-            //                     </Radio>
-            //                     <Radio value="manager" color="green">
-            //                         <Stack
-            //                             direction="row"
-            //                             gap={10}
-            //                             h="70"
-            //                             border="1px solid lightGray"
-            //                             rounded="5"
-            //                         >
+//                     </Radio>
+//                     <Radio value="manager" color="green">
+//                         <Stack
+//                             direction="row"
+//                             gap={10}
+//                             h="70"
+//                             border="1px solid lightGray"
+//                             rounded="5"
+//                         >
 
-            //                             <Flex direction="column">
-            //                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
-            //                                     Manager
-            //                                 </Box>
-            //                                 <Box pl="10" color="gray">
-            //                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and manage assigned projects. Cannot view other projects.</Text>
-            //                                 </Box>
-            //                             </Flex>
-            //                         </Stack>
-            //                     </Radio>
-            //                     <Radio value="normal" color="blue">
-            //                         <Stack
-            //                             direction="row"
-            //                             gap={10}
-            //                             h="70"
-            //                             border="1px solid lightGray"
-            //                             rounded="5"
-            //                         >
+//                             <Flex direction="column">
+//                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
+//                                     Manager
+//                                 </Box>
+//                                 <Box pl="10" color="gray">
+//                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} >Can view and manage assigned projects. Cannot view other projects.</Text>
+//                                 </Box>
+//                             </Flex>
+//                         </Stack>
+//                     </Radio>
+//                     <Radio value="normal" color="blue">
+//                         <Stack
+//                             direction="row"
+//                             gap={10}
+//                             h="70"
+//                             border="1px solid lightGray"
+//                             rounded="5"
+//                         >
 
-            //                             <Flex direction="column">
-            //                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
-            //                                     Normal
-            //                                 </Box>
-            //                                 <Box pl="10" color="gray">
-            //                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} > Can only track time on assigned projects/tasks.</Text>
-            //                                 </Box>
-            //                             </Flex>
-            //                         </Stack>
-            //                     </Radio>
-            //                 </Stack>
+//                             <Flex direction="column">
+//                                 <Box pl="10" fontWeight="500" color="gray.600" textAlign="left">
+//                                     Normal
+//                                 </Box>
+//                                 <Box pl="10" color="gray">
+//                                     <Text fontSize={{ base: '15px', md: '20px', lg: '18px' }} noOfLines={2} > Can only track time on assigned projects/tasks.</Text>
+//                                 </Box>
+//                             </Flex>
+//                         </Stack>
+//                     </Radio>
+//                 </Stack>
 
-            //             </Field>
-            //               )
+//             </Field>
+//               )
 
 
 import React, { useState } from 'react'
@@ -100,16 +100,16 @@ const Teamform = () => {
     const [member, SetMember] = useState({});
 
     const handleChange = (e) => {
-        
-            SetMember({
-                ...member,
-                [e.target.name]: e.target.value, 
-                
-            });
-        
-        console.log("ANS",e.target.value);
+
+        SetMember({
+            ...member,
+            [e.target.name]: e.target.value,
+
+        });
+
+        console.log("ANS", e.target.value);
     };
-    console.log("member",member);    
+    console.log("member", member);
 
     const postData = (member) => {
         const token = localStorage.getItem("psc_app_token");
@@ -142,7 +142,7 @@ const Teamform = () => {
                     Add Team member{" "}
                     <QuestionOutlineIcon style={{ width: "16px", color: "#3b8fc2" }} />
                 </Heading>
-                <FormControl onSubmit={handleSubmit} style={{ width: "100%" }}>
+                <FormControl onSubmit={handleSubmit} pb={20} style={{ width: "100%" }}>
 
                     <FormLabel fontSize="12px" mt="1rem" color="gray.600">
                         NAME
@@ -176,10 +176,13 @@ const Teamform = () => {
                         name="note"
                     ></Textarea>
 
-                    <Select name='role'  onChange={handleChange}>
-                        <option  value="admin">Admin</option>
-                        <option  value="manager">Manager</option>
-                        <option  value="normal">Normal</option>
+                    <FormLabel fontSize="12px" mt="1rem" color="gray.600">
+                        ROLE
+                    </FormLabel>
+                    <Select name='role' onChange={handleChange}>
+                        <option value="admin">Admin</option>
+                        <option value="manager">Manager</option>
+                        <option value="normal">Normal</option>
                     </Select>
 
                     <Accordion defaultIndex={[0]} allowMultiple mt="30">

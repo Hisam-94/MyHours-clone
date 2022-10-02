@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Heading, Input, Spacer, Table, TableContainer, Tbody,  Th, Thead, Tr } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
-import { ArrowUpIcon, ExternalLinkIcon, EditIcon } from "@chakra-ui/icons";
+import { ArrowUpIcon, ExternalLinkIcon, EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import { Td } from '../Pricepage/style';
 import axios from "axios";
 import Sidebar from '../Application/Sidebar/Sidebar';
@@ -10,6 +10,8 @@ const Teamuser = () => {
 
     // ! DYNAMIC DATA :
     const [data, setData] = useState([]);
+
+    // ! DYNAMIC others PROVIDED logic
     // useEffect(() =>{
     //     getData();
 
@@ -111,6 +113,7 @@ const Teamuser = () => {
                                         <Th fontWeight="500" fontSize="15">ROLE</Th>
                                         <Th fontWeight="500" fontSize="15">STATUS <ArrowUpIcon boxSize="5" mb="1" /></Th>
                                         <Th fontWeight="500" fontSize="15">ACTION</Th>
+                                        <Th fontWeight="500" fontSize="15">DELECT</Th>
                                     </Tr>
                                 </Thead>
                                 <Tbody>
@@ -124,7 +127,9 @@ const Teamuser = () => {
                                             <Td fontSize="14">{el.role}</Td>
                                             <Td fontSize="14">Active</Td>
                                             <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/edit/${el._id}`}>Edit </Link><EditIcon mb="1" /></Td>
-                                            <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }} onClick={() => handleDelete(el._id)}> Delete <EditIcon mb="1" /></Td>
+                                            <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}
+                                            //  onClick={() => handleDelete(el._id)}
+                                            > <DeleteIcon/> </Td>
                                         </Tr>
                                     ))}
                                 </Tbody>
