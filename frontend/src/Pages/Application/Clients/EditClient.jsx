@@ -16,10 +16,8 @@ import Sidebar from "../Sidebar/Sidebar";
 
 const EditClient = () => {
   const [form, setForm] = useState({});
-  console.log("form:", form);
   const params = useParams();
   const id = params.id;
-  console.log("params",id)
   const navigate = useNavigate();
   const token = localStorage.getItem("psc_app_token");
 
@@ -33,12 +31,11 @@ const EditClient = () => {
 
   const getData = async () => {
     console.log(form);
-    const res = await axios(`http://localhost:8080/client/${id}`,{
+    const res = await axios.get(`http://localhost:8080/client/${id}`,{
           headers: {
             Authorization: `Bearer ${token}`,
           }},);
     setForm(res.data);
-    console.log("From edit",res.data);
   };
 
   const handlePatch = async () => {
@@ -73,7 +70,7 @@ const EditClient = () => {
             fontSize="12px"
             mt="1rem"
             color="gray.600"
-            value={form.name}
+            value={form.name ||""}
           >
             NAME
           </FormLabel>
@@ -82,13 +79,13 @@ const EditClient = () => {
             w="100%"
             variant="outline"
             name="name"
-            value={form.name}
+            value={form.name ||""}
           ></Input>
           <FormLabel
             fontSize="12px"
             mt="1rem"
             color="gray.600"
-            value={form.contact_person}
+            value={form.contact_person ||""}
           >
             CONTACT PERSON
           </FormLabel>
@@ -98,13 +95,13 @@ const EditClient = () => {
             w="100%"
             variant="outline"
             name="contactperson"
-            value={form.contact_person}
+            value={form.contact_person ||""}
           ></Input>
           <FormLabel
             fontSize="12px"
             mt="1rem"
             color="gray.600"
-            value={form.email}
+            value={form.email||""}
           >
             EMAIL
           </FormLabel>
@@ -114,13 +111,13 @@ const EditClient = () => {
             w="100%"
             variant="outline"
             name="email"
-            value={form.email}
+            value={form.email ||""}
           ></Input>
           <FormLabel
             fontSize="12px"
             mt="1rem"
             color="gray.600"
-            value={form.phone}
+            value={form.phone||""}
           >
             PHONE
           </FormLabel>
@@ -129,7 +126,7 @@ const EditClient = () => {
             w="100%"
             variant="outline"
             name="phone"
-            value={form.phone}
+            value={form.phone ||""}
           ></Input>
           <FormLabel fontSize="12px" mt="1rem" color="gray.600">
             ADDRESS
@@ -140,7 +137,7 @@ const EditClient = () => {
             h="4rem"
             w="100%"
             name="address"
-            value={form.address}
+            value={form.address ||""}
           ></Textarea>
           <HStack spacing={1} justifyContent="space-betwee6">
             <Box w="46%">
@@ -149,7 +146,7 @@ const EditClient = () => {
               </FormLabel>
               <Input
                 onChange={handleChange}
-                value={form.tax_name}
+                value={form.tax_name ||""}
                 w="100%"
                 variant="outline"
                 name="taxName"
@@ -162,10 +159,10 @@ const EditClient = () => {
               <Input
                 type="number"
                 onChange={handleChange}
-                value={form.tax_parcentage}
+                value={form.tax_percentage ||""}
                 w="100%"
                 variant="outline"
-                name="taxparcentage"
+                name="tax_percentage"
               ></Input>
             </Box>
           </HStack>
@@ -175,7 +172,7 @@ const EditClient = () => {
           <Input
             onChange={handleChange}
             w="100%"
-            value={form.tax_number}
+            value={form.tax_number ||""}
             variant="outline"
             name="taxNumber"
           ></Input>
