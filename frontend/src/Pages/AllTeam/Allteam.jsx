@@ -29,7 +29,7 @@ const Allteam = () => {
 
     const handleDelete = (id) => {
         axios
-          .delete(`http://localhost:8080/team/${id}`, {
+          .delete(`http://localhost:8080/team/delete/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             }
