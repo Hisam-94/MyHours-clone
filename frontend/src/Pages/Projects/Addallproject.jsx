@@ -41,7 +41,7 @@ const Addallproject = () => {
     const handleSubmit = () => {
         if(name || client || desc){
             const payload = {
-                project_name: name,
+                name: name,
                 client: client,
                 desc: desc,
                 date: new Date().toDateString()
