@@ -35,13 +35,13 @@ const AllRoutes = () => {
         <Route path='/addprojects' element={<Addallproject/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/sidebar' element={<Sidebar/>}/>
-        <Route path='/teams' element={<Teamuser/>}/>
-        <Route path='/addmember' element={<Teamform/>}/>
-        <Route path='/edit/:id' element={<Editform/>}/>
+        <Route path='/teams' element={<Teamuser/>}/> {/*  teams => team Member page */}
+        <Route path='/addmember' element={<Teamform/>}/>{/*  addmember => Add teamMember page */}
+        <Route path='/edit/:id' element={<Editform/>}/>{/*  editmember => Edit teamMember page */}
         <Route path='/clients' element={<Clients/>}/>
         <Route path='/addclient' element={<AddClient/>}/>
         <Route path='/editclient/:id' element={<EditClient/>}/>        
-        <Route path='/allteam' element={<Allteam/>}/>
+        <Route path='/allteam' element={<Allteam/>}/> {/*  allteams =>  Teams page */}
         <Route path='/addteam' element={<Addteam/>}/>
         <Route path='/editteam/:id' element={<Editteam/>}/>
     </Routes>

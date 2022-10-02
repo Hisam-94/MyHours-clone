@@ -3,6 +3,8 @@ import React from 'react'
 import { Box, Heading, Text, Button, Grid, Image } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
+import Footer from '../../Components/Footer/Footer';
+import Navbar from '../../Components/Navbar/Navbar';
 
 import data from "./data.json";
 import Reviews from '../../Components/Review/Reviews';
@@ -10,6 +12,8 @@ import Reviews from '../../Components/Review/Reviews';
 
 const Resources = () => {
   return (
+   <Box>
+    <Navbar />
     <Box
       w="100%"
       // bg="green"
@@ -101,6 +105,9 @@ const Resources = () => {
         <Reviews />
       </Box>
     </Box>
+    <Footer/>
+   </Box>
+   
   )
 }
 
