@@ -1,13 +1,51 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, ButtonGroup, Heading, Input, Spacer, Table, TableContainer, Tbody, Text, Th, Thead, Tr } from '@chakra-ui/react'
+import { Box, Button,  Heading, Input, Spacer, Table, TableContainer, Tbody,  Th, Thead, Tr } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
-import { ArrowUpIcon, ExternalLinkIcon, EditIcon } from "@chakra-ui/icons";
+import { ArrowUpIcon, EditIcon } from "@chakra-ui/icons";
 import { Td } from '../Pricepage/style';
 import axios from "axios";
+import Sidebar from '../Application/Sidebar/Sidebar';
 
 const Allteam = () => {
 
-// ! DYNAMIC DATA :
+    const [data, setData] = useState([]);
+    const token = localStorage.getItem("psc_app_token");
+    const getData = () => {
+      try {
+        return axios
+          .get(`http://localhost:8080/team`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            }
+          })
+          .then((r) => {
+            console.log(r.data);
+            setData(r.data);
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    const handleDelete = (id) => {
+        axios
+          .delete(`http://localhost:8080/team/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            }
+          })
+          .then(() => {
+            getData();
+          })
+          .catch((err) => console.error(err));
+      };
+
+    useEffect(() => {
+        getData();
+      }, []);
+
+      
+// ! DYNAMIC DATA : (Previos)
 // const [data , setData ] = useState([]);
 // useEffect(() =>{
 //     getData();
@@ -20,28 +58,19 @@ const Allteam = () => {
 
 
 // ! STATIC DATA :
-// const data = [{ "_id": "6307ac5c6e61dce47a2beaa6", "name": "sagar", "email": "dineshbhaikothadiya504@gmail.comma", "note": "abc", "role": "Manager", "laborRate": 2345, "billableRate": 456, "__v": 0 },
-// { "_id": "6307ac5c6e61Tushar", "name": "Tushar", "email": "dineshbhaikothadiya504@gmail.comma", "note": "def", "role": "Normal", "laborRate": 2345, "billableRate": 456, "__v": 0 },
-// { "_id": "6307ac5c6e61Nilesh", "name": "Nilesh", "email": "dineshbhaikothadiya504@gmail.comma", "note": "ghi", "role": "Manager", "laborRate": 2345, "billableRate": 456, "__v": 0 },
-// { "_id": "6307ac5c6e61Akash", "name": "Akash", "email": "dineshbhaikothadiya504@gmail.comma", "note": "xyz", "role": "Admin", "laborRate": 2345, "billableRate": 456, "__v": 0 },
-// { "_id": "6307ac5c6e6Satish", "name": "satish", "email": "dineshbhaikothadiya504@gmail.comma", "note": "mno", "role": "Manager", "laborRate": 2345, "billableRate": 456, "__v": 0 }
-// ];
-
-const data = [
-    {"_id": "6307ac5c6e61dce47a2beaa6", teamsize: 3 },
-    {"_id": "6307ac5c6e61Tushar", teamsize: 6},
-    { "_id": "6307ac5c6e61Nilesh", teamsize: 9},
-    { "_id": "6307ac5c6e61Akash", teamsize: 5},
-    {"_id": "6307ac5c6e6Satish", teamsize: 2},
-]
-
-
+// const data = [
+//     {"_id": "6307ac5c6e61dce47a2beaa6", teamsize: 3 },
+//     {"_id": "6307ac5c6e61Tushar", teamsize: 6},
+//     { "_id": "6307ac5c6e61Nilesh", teamsize: 9},
+//     { "_id": "6307ac5c6e61Akash", teamsize: 5},
+//     {"_id": "6307ac5c6e6Satish", teamsize: 2},
+// ]
 
   return (
      <>
     <Box display='flex'>
-        <Box w='20%'height='45rem' bg='green'>
-            <h1>SIDEBAR</h1>
+        <Box w='17%'height='45rem' >
+            <Sidebar/>
         </Box>
         <Box w='80%'>
             <Box
@@ -60,7 +89,7 @@ const data = [
                     </Box>
                 </Box>
                 <Spacer />
-                <Button><Link to="/teamform">➕ New Team Member</Link></Button>
+                <Button><Link to="/addteam">➕ New Team</Link></Button>
             </Box>
 
             <Box>
@@ -69,26 +98,19 @@ const data = [
                         <Thead borderBottom="2px solid lightGray" fontSize="lg">
                             <Tr>
                                 <Th fontWeight="500" fontSize="15">NAME <ArrowUpIcon boxSize="5" mb="1" /></Th>
-                                <Th fontWeight="500" fontSize="15">ACTIVITY</Th>
-                                <Th fontWeight="500" fontSize="15">EMAIL</Th>
-                                <Th fontWeight="500" fontSize="15" isNumeric>LABOR RATE</Th>
-                                <Th fontWeight="500" fontSize="15" isNumeric>BILLABLE RATE</Th>
-                                <Th fontWeight="500" fontSize="15">ROLE</Th>
-                                <Th fontWeight="500" fontSize="15">STATUS <ArrowUpIcon boxSize="5" mb="1" /></Th>
+                                <Th fontWeight="500" fontSize="15">TEAM SIZE</Th>
                                 <Th fontWeight="500" fontSize="15">ACTION</Th>
+                                <Th fontWeight="500" fontSize="15">DELECT</Th>
+                               
                             </Tr>
                         </Thead>
                         <Tbody>
                             {data && data.map((el, index) => (
                                 <Tr key={index}>
                                     <Td fontSize="14">{el.name}</Td>
-                                    <Td fontSize="14" cursor="pointer" color="blue" _hover={{ color: "darkBlue" }}>View Activity <ExternalLinkIcon mb="1" /> </Td>
-                                    <Td fontSize="14">{el.email}</Td>
-                                    <Td fontSize="14" isNumeric>{`₹ ${el.laborRate}.00`}</Td>
-                                    <Td fontSize="14" isNumeric>{`₹ ${el.billableRate}.00`}</Td>
-                                    <Td fontSize="14">{el.role}</Td>
-                                    <Td fontSize="14">Active</Td>
-                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/edit/${el._id}`}>Edit </Link><EditIcon mb="1" /></Td>
+                                    <Td fontSize="14">{el.teamsize}</Td>
+                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/editteam/${el._id}`}>Edit </Link><EditIcon mb="1" /></Td>
+                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}>{index} Delete</Td>
                                 </Tr>
                             ))}
                         </Tbody>
