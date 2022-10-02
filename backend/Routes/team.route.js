@@ -7,8 +7,17 @@ const {teamModel} = require("../Models/team.module");
 const teamController =  Router();
 
 teamController.get("/", async (req, res) => {
-    const { name } = req.query;
-    const team = await teamModel.find({ userId: req.body.userId, name });
+   
+    const team = await teamModel.find({ userId: req.body.userId });
+    res.send(team);
+  });
+
+  teamController.get("/:id", async (req, res) => {
+    const {id} = req.params
+    const team = await teamModel.find({
+      userId: req.body.userId,
+      _id:id
+    });
     res.send(team);
   });
 

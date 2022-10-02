@@ -5,10 +5,19 @@ const { clientModel } = require("../Models/client.module");
 const clientController = Router();
 
 clientController.get("/", async (req, res) => {
-  const { name } = req.query;
+
   const client = await clientModel.find({
     userId: req.body.userId,
-    name,
+ 
+  });
+  res.send(client);
+});
+
+clientController.get("/:id", async (req, res) => {
+  const {id} = req.params
+  const client = await clientModel.find({
+    userId: req.body.userId,
+    _id:id
   });
   res.send(client);
 });
