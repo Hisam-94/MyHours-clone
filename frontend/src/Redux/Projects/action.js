@@ -22,8 +22,13 @@ export const getProjectError = () => {
 
 
 export const getProject = (dispatch) => {
+    const token = localStorage.getItem("psc_app_token");
     dispatch(getProjectRequest());
-    axios.get("http://localhost:8080/projects")
+    axios.get("http://localhost:8080/projects", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      })
     .then((res) => dispatch(getProjectSuccess(res.data)))
     .catch((err) => dispatch(getProjectError(err)))
 }
@@ -50,9 +55,16 @@ export const addProjectError = () => {
 }
 
 export const addProject = (payload) => (dispatch) => {
+    const token = localStorage.getItem("psc_app_token");
     dispatch(addProjectRequest());
     return axios
-      .post(`http://localhost:8080/projects`, payload)
+      .post(`http://localhost:8080/projects`, {
+        
+        body: payload,
+        headers: {
+            Authorization: `Bearer ${token}`,
+          }, 
+      })
       .then((res) => dispatch(addProjectSuccess(res.data)))
     //   .then(() => dispatch(getProject))
       .catch((err) => dispatch(addProjectError(err)));
