@@ -53,7 +53,7 @@ const Clients = () => {
   const clientsData = () => {
     try {
       return axios
-        .get(`http://localhost:8080/client`, {
+        .get(`https://fierce-headland-49726.herokuapp.com/client`, {
           headers: {
             Authorization: `Bearer ${token}`,
           }
@@ -68,7 +68,7 @@ const Clients = () => {
   };
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/client/delete/${id}`, {
+      .delete(`https://fierce-headland-49726.herokuapp.com/client/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
