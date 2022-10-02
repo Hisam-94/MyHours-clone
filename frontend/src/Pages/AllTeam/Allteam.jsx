@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button,  Heading, Input, Spacer, Table, TableContainer, Tbody,  Th, Thead, Tr } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
-import { ArrowUpIcon, EditIcon } from "@chakra-ui/icons";
+import { ArrowUpIcon, EditIcon , DeleteIcon } from "@chakra-ui/icons";
 import { Td } from '../Pricepage/style';
 import axios from "axios";
 import Sidebar from '../Application/Sidebar/Sidebar';
@@ -44,16 +44,23 @@ const Allteam = () => {
         getData();
       }, []);
 
+      function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+
       
+
 // ! DYNAMIC DATA : (Previos)
 // const [data , setData ] = useState([]);
 // useEffect(() =>{
 //     getData();
+    
 // } , []);
 
 // const getData = async () =>{
 //     const r = await axios("https://masaihours.herokuapp.com/teamMember/teamMemberdata");
 //     setData(r.data);
+     
 // }
 
 
@@ -95,22 +102,25 @@ const Allteam = () => {
             <Box>
                 <TableContainer mt="5">
                     <Table size="md">
-                        <Thead borderBottom="2px solid lightGray" fontSize="lg">
+                        <Thead  borderBottom="2px solid lightGray"  fontSize="lg">
                             <Tr>
-                                <Th fontWeight="500" fontSize="15">NAME <ArrowUpIcon boxSize="5" mb="1" /></Th>
-                                <Th fontWeight="500" fontSize="15">TEAM SIZE</Th>
-                                <Th fontWeight="500" fontSize="15">ACTION</Th>
-                                <Th fontWeight="500" fontSize="15">DELECT</Th>
+
+                                <Th textAlign={'center'} fontWeight="500" fontSize="15" bg='gray.100' w={'25%'}>NAME <ArrowUpIcon boxSize="5" mb="1" /></Th>
+                                <Th textAlign={'center'} fontWeight="500" fontSize="15" bg='gray.100' w={'25%'}>TEAM SIZE</Th>
+                                <Th textAlign={'center'} fontWeight="500" fontSize="15" bg='gray.100' w={'25%'}>ACTION</Th>
+                                <Th textAlign={'center'} fontWeight="500" fontSize="15" bg='gray.100' w={'25%'}> DELECT</Th>
                                
                             </Tr>
                         </Thead>
                         <Tbody>
                             {data && data.map((el, index) => (
-                                <Tr key={index}>
-                                    <Td fontSize="14">{el.name}</Td>
-                                    <Td fontSize="14">{el.teamsize}</Td>
-                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/editteam/${el._id}`}> Edit </Link><EditIcon mb="1" /></Td>
-                                    <Td fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }} onClick={() => handleDelete(el._id)} >Delete</Td>
+                                <Tr key={index} >
+                                    <Td bg='gray.100' w={'25%'} fontSize="14">{el.name}</Td>
+                                    <Td bg='gray.100' w={'25%'} fontSize="14">{randomIntFromInterval(2, 6) }</Td>
+                                    <Td bg='gray.100' w={'25%'} fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }}><Link to={`/editteam/${el._id}`}> Edit </Link><EditIcon mb="1" /></Td>
+                                    <Td bg='gray.100' w={'25%'} fontSize="14" cursor="pointer" _hover={{ fontWeight: 500 }} 
+                                    onClick={() => handleDelete(el._id)}
+                                     > <DeleteIcon/> </Td>
                                 </Tr>
                             ))}
                         </Tbody>
