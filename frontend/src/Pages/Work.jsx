@@ -17,13 +17,26 @@ const Work = () => {
       </div>
 
       {/* ****************Video**************** */}
-    <div>
+    {/* <div>
         <div className={style.cont2}>
             <div className={style.cont2div}>
                 <iframe className={style.video} src="https://www.youtube.com/embed/VpMysclixyQ?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0" frameborder="0"  allow="autoplay; encrypted-media" allowfullscreen="" title="My Hours Intro video"></iframe>
             </div>
         </div>
-    </div>
+    </div> */}
+
+<div className={style.cont2}>
+     <iframe
+              width="800"
+              height="400"
+              box-Shadow=" rgba(0, 0, 0, 0.35) 0px 5px 15px"
+              src="https://www.youtube.com/embed/VpMysclixyQ?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+     </div>
 
     {/* **********************Section-3****************** */}
     <div className={style.cont3}>
