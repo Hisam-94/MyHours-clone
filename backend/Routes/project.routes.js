@@ -5,10 +5,19 @@ const { projectModel } = require("../Models/project.module");
 const projectController = Router();
 
 projectController.get("/", async (req, res) => {
-  const { name } = req.query;
+ 
   const project = await projectModel.find({
     userId: req.body.userId,
-    name,
+ 
+  });
+  res.send(project);
+});
+
+projectController.get("/:id", async (req, res) => {
+  const {id} = req.params
+  const project = await projectModel.find({
+    userId: req.body.userId,
+    _id:id
   });
   res.send(project);
 });
