@@ -43,7 +43,7 @@ const Login = () => {
     };
     setEmail("");
     setPassword("");
-    await fetch("http://localhost:8080/user/login", {
+    await fetch("https://fierce-headland-49726.herokuapp.com/user/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
