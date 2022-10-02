@@ -6,8 +6,9 @@ import Footer from '../Components/Footer/Footer';
 
 const Work = () => {
   return (
+    <>
+        <Navbar />
     <div>
-        {/* <Navbar /> */}
       <div className={style.topdiv}>
           <h1 className={style.heading45}>How it works</h1>
           <h2 className={style.heading47}>& why you should switch to My Hours</h2>
@@ -175,8 +176,9 @@ const Work = () => {
            <h2 className={style.heading6}>No, you cannot spy on your employees with My Hours</h2>
            <div className={style.textBlock6}>My Hours does not record your or your employees’ screens. No screenshots, no apps tracked, <span className={style.span6}> no employee monitoring. </span> Of course, you are free to view work logs that your team members have entered.</div>
       </div>
-      {/* <Footer /> */}
     </div>
+      <Footer />
+    </>
   )
 }
 
