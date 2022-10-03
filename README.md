@@ -61,32 +61,46 @@ This collaborative project is a clone of the [MyHours](https://myhours.com) webs
 
   ![FAQ](./Website%20sneak%20peeks/FAQ.png?raw=true)
 
--**Support**
+- **Support**
 
-![Support](./Website%20sneak%20peeks/Support.png?raw=true)
+   ![Support](./Website%20sneak%20peeks/Support.png?raw=true)
 
 - **Signup**
 
   ![Signup](./Website%20sneak%20peeks/SignUp.png?raw=true)
 
-  - **SignIn**
+- **SignIn**
+
     ![SignIn](./Website%20sneak%20peeks/SignIn.png?raw=true)
 
-- **Track Page**
+<!-- + - **Track Page** + -->
 
-  ![Track](./Website%20sneak%20peeks/Track.png?raw=true)
+  <!-- +![Track](./Website%20sneak%20peeks/Track.png?raw=true) + -->
 
-  - **Client**
-    ![Client](./Website%20sneak%20peeks/Client.png?raw=true)
+- **Project**
 
-  - **Clint Form**
-    ![Client Form](./Website%20sneak%20peeks/ClientForm.png?raw=true)
+    ![Project](./Website%20sneak%20peeks/Project.png?raw=true)
+    
+- **Project Form**
 
-  - **Team Members**
-    ![Team Members](./Website%20sneak%20peeks/TeamMembers.png?raw=true)
+    ![Project](./Website%20sneak%20peeks/ProjectForm.png?raw=true)    
+    
+- **Client**
 
-  - **Team Members Form**
+    ![Client](./Website%20sneak%20peeks/Client.png?raw=true)    
+
+- **Clint Form**
+
+    ![Client Form](./Website%20sneak%20peeks/ClientForm.png?raw=true)    
+
+- **Team Members**
+
+    ![Team Members](./Website%20sneak%20peeks/TeamMembers.png?raw=true)    
+
+- **Team Members Form**
+
     ![Team Member Form](./Website%20sneak%20peeks/TeamMemberForm.png?raw=true)
+    
 
 - **Footer**
 
